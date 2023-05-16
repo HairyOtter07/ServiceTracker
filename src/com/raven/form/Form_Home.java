@@ -26,9 +26,9 @@ public class Form_Home extends javax.swing.JPanel{
         JPanel p = new JPanel();
         p.setBackground(Color.WHITE);
         spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
-      //  table.addRow(new VolEvent("Dog Shelter", "Pleasanton Dog Shelter", "3", "25 Apr, 2020", StatusType.PENDING));
-      table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021", StatusType.APPROVED});  
-      table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021", StatusType.APPROVED});
+        //  table.addRow(new VolEvent("Dog Shelter", "Pleasanton Dog Shelter", "3", "25 Apr, 2020", StatusType.PENDING));
+        table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021", StatusType.APPROVED});  
+        table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021", StatusType.APPROVED});
         table.addRow(new Object[]{"Youth Mentoring", "Community Center", "2", "8 Sep, 2022", StatusType.APPROVED});
         table.addRow(new Object[]{"Fundraising Gala", "Grand Ballroom", "6", "19 Nov, 2023", StatusType.PENDING});
         table.addRow(new Object[]{"Hospital Volunteer", "City General Hospital", "4", "2 Mar, 2024", StatusType.PENDING});
@@ -59,7 +59,6 @@ public class Form_Home extends javax.swing.JPanel{
         table.addRow(new Object[]{"Nature Trail Maintenance", "East Bay Regional Park District", "6", "5 Nov, 2023", StatusType.PENDING});
 
     }
-    for(int i = 0 ; i < Object)
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
