@@ -5,6 +5,23 @@
  */
 package com.raven.form;
 
+import com.raven.model.Model_Card;
+import com.raven.model.StatusType;
+import com.raven.swing.ScrollBar;
+import com.raven.model.VolEvent;
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import java.awt.font.*;
+import javax.swing.JLabel;
+import java.awt.Font;
+
+
+
 /**
  *
  * @author RAVEN
@@ -18,6 +35,9 @@ public class Form_1 extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void f1ddRow(String[] m){
+        table.addRow(m);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,13 +48,21 @@ public class Form_1 extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        panel = new javax.swing.JLayeredPane();
+        card1 = new com.raven.component.Card();
+        card2 = new com.raven.component.Card();
+        card3 = new com.raven.component.Card();
+        panelBorder1 = new com.raven.swing.PanelBorder();
+        jLabel1 = new javax.swing.JLabel();
+        spTable = new javax.swing.JScrollPane();
+        table = new com.raven.swing.Table();
 
         setBackground(new java.awt.Color(242, 242, 242));
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(106, 106, 106));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Form 1");
+        // jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
+        // jLabel1.setForeground(new java.awt.Color(106, 106, 106));
+        // jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        // jLabel1.setText("Form 1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -52,10 +80,70 @@ public class Form_1 extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(125, 125, 125))
         );
+        // spTable.setVerticalScrollBar(new ScrollBar());
+        // spTable.getVerticalScrollBar().setBackground(Color.WHITE);
+        // spTable.getViewport().setBackground(Color.WHITE);
+        // JPanel p = new JPanel();
+        // p.setBackground(Color.WHITE);
+        // spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
+        table = new com.raven.swing.Table();
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object[][]{},
+            new String[]{"Event", "Location", "Hours Logged", "Date"}
+        ));
+        
+        // Create the scroll pane and add the table to it
+        spTable = new javax.swing.JScrollPane(table);
+        spTable.setVerticalScrollBar(new ScrollBar());
+        spTable.getVerticalScrollBar().setBackground(Color.WHITE);
+        spTable.getViewport().setBackground(Color.WHITE);
+        JPanel p = new JPanel();
+        p.setBackground(Color.WHITE);
+        spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
+        
+        // Set the layout and add the components
+        setLayout(new java.awt.BorderLayout());
+        add(spTable, java.awt.BorderLayout.WEST);
+        table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021"});
+        table.addRow(new Object[]{"Youth Mentoring", "Community Center", "2", "8 Sep, 2022"});
+        table.addRow(new Object[]{"Fundraising Gala", "Grand Ballroom", "6", "19 Nov, 2023"});
+        table.addRow(new Object[]{"Hospital Volunteer", "City General Hospital", "4", "2 Mar, 2024"});
+        table.addRow(new Object[]{"Senior Home Visits", "Golden Acres Senior Home", "3", "10 Aug, 2024"});
+        table.addRow(new Object[]{"Community Garden", "Green Thumb Park", "4", "5 May, 2025"});
+        table.addRow(new Object[]{"Reading Program", "Public Library", "2", "14 Sep, 2025"});
+        table.addRow(new Object[]{"Homeless Shelter", "Hope Haven Shelter", "5", "9 Dec, 2026"});
+        table.addRow(new Object[]{"Blood Drive", "Community Center", "3", "20 Mar, 2027"});
+        table.addRow(new Object[]{"Red Cross Fundraiser", "San Francisco", "5", "15 May, 2023"});
+        
+        //Goal NUmber
+        numberLabel = new JLabel();
+        numberLabel.setFont(new Font("SansSerif", Font.BOLD, 36));
+        numberLabel.setForeground(Color.RED);
+        numberLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        numberLabel.setVerticalAlignment(SwingConstants.TOP);
+        numberLabel.setBounds(700, 20, 150, 50); // Adjust the bounds as needed
+        panel.add(numberLabel);
+        int number = 123; // Replace with your desired number
+        numberLabel.setText(Integer.toString(number));
+
+
+
+
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
+    private com.raven.component.Card card1;
+    private com.raven.component.Card card2;
+    private com.raven.component.Card card3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLayeredPane panel;
+    private com.raven.swing.PanelBorder panelBorder1;
+    private javax.swing.JScrollPane spTable;
+    private com.raven.swing.Table table;
+    private javax.swing.JTextField textField;
+    private JLabel numberLabel;
+
     // End of variables declaration//GEN-END:variables
 }

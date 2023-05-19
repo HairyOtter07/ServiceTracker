@@ -93,7 +93,7 @@ public class Form_Home extends javax.swing.JPanel{
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel1.setText("Standard Table Design");
+        jLabel1.setText("Currently Done");
 
         spTable.setBorder(null);
 
@@ -158,8 +158,12 @@ public class Form_Home extends javax.swing.JPanel{
                 .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
-    }// </editor-fold>//GEN-END:initComponents
-
+    }
+    
+    // </editor-fold>//GEN-END:initComponents
+    public void formHaddRow(String[] x){
+        table.addRow(x);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.component.Card card1;
