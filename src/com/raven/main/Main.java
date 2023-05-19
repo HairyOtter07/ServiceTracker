@@ -27,6 +27,7 @@ public class Main extends javax.swing.JFrame {
     private Form_2 form2;
     private Form_3 form3;
 
+
     public Main() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
@@ -46,14 +47,15 @@ public class Main extends javax.swing.JFrame {
                     setForm(form2);
                 } else if (index == 3) {
                     setForm(form3);
-                }
+                }else if(index ==5 ){System.exit(0);}
+                
             }
         });
         //  set when system open start with home form
         setForm(new Form_Home());
     }
 
-    private void setForm(JComponent com) {
+    public static void setForm(JComponent com) {
         mainPanel.removeAll();
         mainPanel.add(com);
         mainPanel.repaint();
@@ -159,7 +161,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.component.Header header2;
-    private javax.swing.JPanel mainPanel;
+    public static javax.swing.JPanel mainPanel;
     private com.raven.component.Menu menu;
     private com.raven.swing.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables
