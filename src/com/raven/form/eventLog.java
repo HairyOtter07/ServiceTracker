@@ -10,7 +10,10 @@ import com.raven.model.StatusType;
 import com.raven.swing.ScrollBar;
 import com.raven.model.VolEvent;
 import java.awt.Color;
+import java.awt.TextField;
 import java.util.ArrayList;
+import java.util.jar.Attributes.Name;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -44,6 +47,8 @@ public class eventLog extends javax.swing.JPanel {
               JPanel p = new JPanel();
               p.setBackground(Color.WHITE);
               spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
+
+              
               
               // Set the layout and add the components
               setLayout(new java.awt.BorderLayout());
@@ -56,11 +61,11 @@ public class eventLog extends javax.swing.JPanel {
               JLabel statusLabel = new JLabel("Status");
       
               // Create information labels
-              JLabel eventNameLabel = new JLabel("Dog Shelter");
-              JLabel locationTextLabel = new JLabel("Pleasanton Dog Shelter");
-              JLabel hoursLoggedTextLabel = new JLabel("3");
-              JLabel dateTextLabel = new JLabel("25 Apr, 2020");
-              JLabel statusTextLabel = new JLabel(StatusType.PENDING.toString());
+              JLabel eventNameLabel = new JLabel(event);
+              JLabel locationTextLabel = new JLabel(location);
+              JLabel hoursLoggedTextLabel = new JLabel(Integer.toString(hours));
+              JLabel dateTextLabel = new JLabel(date);
+              //JLabel statusTextLabel = new JLabel(StatusType.PENDING.toString());
 
 
       
@@ -73,16 +78,19 @@ public class eventLog extends javax.swing.JPanel {
       
               // Set layout and add components
               setLayout(new java.awt.GridLayout(6, 2, 5, 5));
-              spTable.add(eventLabel);
-              spTable.add(eventNameLabel);
-              spTable.add(locationLabel);
-              spTable.add(locationTextLabel);
-              spTable.add(hoursLoggedLabel);
-              spTable.add(hoursLoggedTextLabel);
-              spTable.add(dateLabel);
-              spTable.add(dateTextLabel);
-              spTable.add(statusLabel);
-              spTable.add(statusTextLabel);
+              p.add(eventLabel);
+              p.add(eventNameLabel);
+              p.add(locationLabel);
+              p.add(locationTextLabel);
+              p.add(hoursLoggedLabel);
+              p.add(hoursLoggedTextLabel);
+              p.add(dateLabel);
+              p.add(dateTextLabel);
+              p.add(statusLabel);
+
+            //  setupLabels();
+        
+              //p.add(statusTextLabel);
               //spTable.add(new Model_Menu("10", "Log Out", Model_Menu.MenuType.MENU))
     }
 
@@ -110,7 +118,43 @@ public class eventLog extends javax.swing.JPanel {
 
         
 
-    }// </editor-fold>//GEN-END:initComponents
+    }
+    
+    // private void setupLabels() {
+    //     // Create information labels
+    //     JLabel eventLabel = new JLabel("Event");
+    //     JLabel locationLabel = new JLabel("Location");
+    //     JLabel hoursLoggedLabel = new JLabel("Hours Logged");
+    //     JLabel dateLabel = new JLabel("Date");
+    //     JLabel statusLabel = new JLabel("Status");
+
+    //     // Set label colors
+    //     eventLabel.setForeground(Color.BLUE);
+    //     locationLabel.setForeground(Color.BLUE);
+    //     hoursLoggedLabel.setForeground(Color.BLUE);
+    //     dateLabel.setForeground(Color.BLUE);
+    //     statusLabel.setForeground(Color.BLUE);
+
+    //     // Create labels for the event details
+    //     JLabel eventNameLabel = new JLabel(event);
+    //     JLabel locationTextLabel = new JLabel(location);
+    //     JLabel hoursLoggedTextLabel = new JLabel(Integer.toString(hours));
+    //     JLabel dateTextLabel = new JLabel(date);
+
+    //     // Set layout and add components
+    //     setLayout(new java.awt.GridLayout(6, 2, 5, 5));
+    //     add(eventLabel);
+    //     add(eventNameLabel);
+    //     add(locationLabel);
+    //     add(locationTextLabel);
+    //     add(hoursLoggedLabel);
+    //     add(hoursLoggedTextLabel);
+    //     add(dateLabel);
+    //     add(dateTextLabel);
+    //     add(statusLabel);
+    //     add(textField);
+    // }
+// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
