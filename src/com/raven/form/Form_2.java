@@ -84,6 +84,7 @@ public class Form_2 extends javax.swing.JPanel{
         setBackground(new java.awt.Color(242, 242, 242));
 
         panel.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
+        
 
         panelBorder1.setBackground(new java.awt.Color(255, 255, 255));
 
