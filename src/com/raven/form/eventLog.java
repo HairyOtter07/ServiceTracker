@@ -136,6 +136,8 @@ public class eventLog extends javax.swing.JPanel {
      //make big panel- ----------------------------------------------------------------------------------------------------------
 
 
+
+
            //   panel.add(card1);
 // 
       
