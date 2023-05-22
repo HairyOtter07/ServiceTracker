@@ -3,24 +3,7 @@
 //  * To change this template file, choose Tools | Templates
 //  * and open the template in the editor.
 //  */
-package com.raven.form;
 
-import com.raven.model.Model_Card;
-import com.raven.model.StatusType;
-import com.raven.swing.ScrollBar;
-import com.raven.model.VolEvent;
-import java.awt.Color;
-import java.awt.TextField;
-import java.util.ArrayList;
-import java.util.jar.Attributes.Name;
-import java.awt.GridLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import com.raven.model.Model_Menu;
-import javax.swing.BorderFactory;
 
 
 
@@ -211,7 +194,25 @@ import javax.swing.BorderFactory;
 // }
 
 
+package com.raven.form;
 
+import com.raven.model.Model_Card;
+import com.raven.model.StatusType;
+import com.raven.swing.ScrollBar;
+import com.raven.model.VolEvent;
+import java.awt.Color;
+import java.awt.TextField;
+import java.util.ArrayList;
+import java.util.jar.Attributes.Name;
+import java.awt.GridLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import com.raven.model.Model_Menu;
+import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -225,11 +226,12 @@ public class eventLog extends javax.swing.JPanel {
     /**
      * Creates new form Form_1
      */
-    public eventLog(String ev, String loc, int hours, String date) {
+    public eventLog(String ev,  String loc, int hours, String date) {
         initComponents();
-
         // Create a label for the name
+        
         JLabel nameLabel = new JLabel(ev);
+        //JLabel Description = new JLabel(dec);
         JLabel dateLabel = new JLabel(date);
         JLabel titleLabel = new JLabel(loc);
         JLabel a = new JLabel("A");
@@ -239,6 +241,7 @@ public class eventLog extends javax.swing.JPanel {
         setLayout(new java.awt.GridLayout(5, 2));
         setBorder(BorderFactory.createLineBorder(Color.red));
         add(nameLabel);
+       // add(Description);
         add(dateLabel);
         add(titleLabel);
         add(a);
@@ -254,4 +257,5 @@ public class eventLog extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+        private com.raven.component.Card card4;
 }

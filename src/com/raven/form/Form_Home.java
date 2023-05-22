@@ -27,36 +27,36 @@ public class Form_Home extends javax.swing.JPanel{
         p.setBackground(Color.WHITE);
         spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         //  table.addRow(new VolEvent("Dog Shelter", "Pleasanton Dog Shelter", "3", "25 Apr, 2020", StatusType.PENDING));
-        table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021", StatusType.APPROVED});  
-        table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021", StatusType.APPROVED});
-        table.addRow(new Object[]{"Youth Mentoring", "Community Center", "2", "8 Sep, 2022", StatusType.APPROVED});
-        table.addRow(new Object[]{"Fundraising Gala", "Grand Ballroom", "6", "19 Nov, 2023", StatusType.PENDING});
-        table.addRow(new Object[]{"Hospital Volunteer", "City General Hospital", "4", "2 Mar, 2024", StatusType.PENDING});
-        table.addRow(new Object[]{"Senior Home Visits", "Golden Acres Senior Home", "3", "10 Aug, 2024", StatusType.APPROVED});
-        table.addRow(new Object[]{"Community Garden", "Green Thumb Park", "4", "5 May, 2025", StatusType.PENDING});
-        table.addRow(new Object[]{"Reading Program", "Public Library", "2", "14 Sep, 2025", StatusType.APPROVED});
-        table.addRow(new Object[]{"Homeless Shelter", "Hope Haven Shelter", "5", "9 Dec, 2026", StatusType.PENDING});
-        table.addRow(new Object[]{"Blood Drive", "Community Center", "3", "20 Mar, 2027", StatusType.PENDING});
-        table.addRow(new Object[]{"Red Cross Fundraiser", "San Francisco", "5", "15 May, 2023", StatusType.PENDING});
-        table.addRow(new Object[]{"Food Bank Volunteer", "Oakland Food Bank", "2", "10 May, 2023", StatusType.APPROVED});
-        table.addRow(new Object[]{"Beach Cleanup", "Santa Cruz Beach", "10", "22 May, 2023", StatusType.PENDING});
-        table.addRow(new Object[]{"Youth Mentorship Program", "Boys and Girls Club", "4", "18 May, 2023", StatusType.REJECT});
-        table.addRow(new Object[]{"Community Garden", "Berkeley Community Garden", "6", "20 May, 2023", StatusType.APPROVED});
-        table.addRow(new Object[]{"Music Festival", "Golden Gate Park", "12", "30 Jun,2023", StatusType.APPROVED});
-        table.addRow(new Object[]{"Eco-Friendly Campaign", "San Francisco City Hall", "8", "1 Jun, 2023", StatusType.PENDING});
-        table.addRow(new Object[]{"Summer Camp Counselor", "Camp Concord", "3", "10 Jul, 2023", StatusType.APPROVED});
-        table.addRow(new Object[]{"Senior Center Volunteer", "Pleasanton Senior Center", "2", "5 Jul, 2023", StatusType.REJECT});
-        table.addRow(new Object[]{"Art Festival", "Livermore Art Association", "5", "1 Sep, 2023", StatusType.APPROVED});
-        table.addRow(new Object[]{"Youth Sports Coach", "Tri-Valley YMCA", "4", "15 Sep, 2023", StatusType.PENDING});
-        table.addRow(new Object[]{"Animal Shelter Volunteer", "East Bay SPCA", "2", "20 Sep, 2023", StatusType.REJECT});
-        table.addRow(new Object[]{"Homeless Shelter", "Salvation Army", "6", "25 Sep, 2023", StatusType.APPROVED});
-        table.addRow(new Object[]{"Community Park Cleanup", "Dublin Community Park", "10", "5 Oct, 2023", StatusType.PENDING});
-        table.addRow(new Object[]{"Teaching Assistant", "Dublin High School", "2", "10 Oct, 2023", StatusType.APPROVED});
-        table.addRow(new Object[]{"After School Tutoring", "Livermore Public Library", "3", "15 Oct, 2023", StatusType.REJECT});
-        table.addRow(new Object[]{"Museum Docent", "Oakland Museum of California", "4", "20 Oct, 2023", StatusType.PENDING});
-        table.addRow(new Object[]{"Meals on Wheels", "Alameda County Meals on Wheels", "2", "25 Oct, 2023", StatusType.APPROVED});
-        table.addRow(new Object[]{"Children's Hospital Volunteer", "UCSF Benioff Children's Hospital", "5", "30 Oct, 2023", StatusType.APPROVED});
-        table.addRow(new Object[]{"Nature Trail Maintenance", "East Bay Regional Park District", "6", "5 Nov, 2023", StatusType.PENDING});
+        table.addRow(new Object[]{"Beach Cleanup", "", "Ocean Beach", "5", "12 Jul, 2021", StatusType.APPROVED});  
+        table.addRow(new Object[]{"Beach Cleanup", "", "Ocean Beach", "5", "12 Jul, 2021", StatusType.APPROVED});
+        table.addRow(new Object[]{"Youth Mentoring", "", "Community Center", "2", "8 Sep, 2022", StatusType.APPROVED});
+        table.addRow(new Object[]{"Fundraising Gala", "", "Grand Ballroom", "6", "19 Nov, 2023", StatusType.PENDING});
+        table.addRow(new Object[]{"Hospital Volunteer", "", "City General Hospital", "4", "2 Mar, 2024", StatusType.PENDING});
+        table.addRow(new Object[]{"Senior Home Visits", "", "Golden Acres Senior Home", "3", "10 Aug, 2024", StatusType.APPROVED});
+        table.addRow(new Object[]{"Community Garden", "", "Green Thumb Park", "4", "5 May, 2025", StatusType.PENDING});
+        table.addRow(new Object[]{"Reading Program", "", "Public Library", "2", "14 Sep, 2025", StatusType.APPROVED});
+        table.addRow(new Object[]{"Homeless Shelter", "", "Hope Haven Shelter", "5", "9 Dec, 2026", StatusType.PENDING});
+        table.addRow(new Object[]{"Blood Drive", "", "Community Center", "3", "20 Mar, 2027", StatusType.PENDING});
+        table.addRow(new Object[]{"Red Cross Fundraiser", "", "San Francisco", "5", "15 May, 2023", StatusType.PENDING});
+        table.addRow(new Object[]{"Food Bank Volunteer", "", "Oakland Food Bank", "2", "10 May, 2023", StatusType.APPROVED});
+        table.addRow(new Object[]{"Beach Cleanup", "", "Santa Cruz Beach", "10", "22 May, 2023", StatusType.PENDING});
+        table.addRow(new Object[]{"Youth Mentorship Program", "", "Boys and Girls Club", "4", "18 May, 2023", StatusType.REJECT});
+        table.addRow(new Object[]{"Community Garden", "", "Berkeley Community Garden", "6", "20 May, 2023", StatusType.APPROVED});
+        table.addRow(new Object[]{"Music Festival", "", "Golden Gate Park", "12", "30 Jun,2023", StatusType.APPROVED});
+        table.addRow(new Object[]{"Eco-Friendly Campaign", "", "San Francisco City Hall", "8", "1 Jun, 2023", StatusType.PENDING});
+        table.addRow(new Object[]{"Summer Camp Counselor", "", "Camp Concord", "3", "10 Jul, 2023", StatusType.APPROVED});
+        table.addRow(new Object[]{"Senior Center Volunteer", "", "Pleasanton Senior Center", "2", "5 Jul, 2023", StatusType.REJECT});
+        table.addRow(new Object[]{"Art Festival", "", "Livermore Art Association", "5", "1 Sep, 2023", StatusType.APPROVED});
+        table.addRow(new Object[]{"Youth Sports Coach", "", "Tri-Valley YMCA", "4", "15 Sep, 2023", StatusType.PENDING});
+        table.addRow(new Object[]{"Animal Shelter Volunteer", "", "East Bay SPCA", "2", "20 Sep, 2023", StatusType.REJECT});
+        table.addRow(new Object[]{"Homeless Shelter", "", "Salvation Army", "6", "25 Sep, 2023", StatusType.APPROVED});
+        table.addRow(new Object[]{"Community Park Cleanup", "", "Dublin Community Park", "10", "5 Oct, 2023", StatusType.PENDING});
+        table.addRow(new Object[]{"Teaching Assistant", "", "Dublin High School", "2", "10 Oct, 2023", StatusType.APPROVED});
+        table.addRow(new Object[]{"After School Tutoring", "", "Livermore Public Library", "3", "15 Oct, 2023", StatusType.REJECT});
+        table.addRow(new Object[]{"Museum Docent", "", "Oakland Museum of California", "4", "20 Oct, 2023", StatusType.PENDING});
+        table.addRow(new Object[]{"Meals on Wheels", "", "Alameda County Meals on Wheels", "2", "25 Oct, 2023", StatusType.APPROVED});
+        table.addRow(new Object[]{"Children's Hospital Volunteer", "", "UCSF Benioff Children's Hospital", "5", "30 Oct, 2023", StatusType.APPROVED});
+        table.addRow(new Object[]{"Nature Trail Maintenance", "", "East Bay Regional Park District", "6", "5 Nov, 2023", StatusType.PENDING});
 
     }
 
@@ -102,11 +102,11 @@ public class Form_Home extends javax.swing.JPanel{
 
             },
             new String [] {
-                "Event", "Location", "Hours Logged", "Date", "Status"
+                "Event", "Description", "Location", "Hours Logged", "Date", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
