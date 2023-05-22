@@ -63,7 +63,7 @@ public class Form_1 extends javax.swing.JPanel {
         numberLabel.setFont(new Font("SansSerif", Font.BOLD, 36));
         numberLabel.setForeground(Color.BLACK);
         numberLabel.setBounds(700, -150, 400, 400);
-        numberLabel.setSize(300,300 );
+        //numberLabel.setSize(300,300 );
         add(numberLabel);
 
         
