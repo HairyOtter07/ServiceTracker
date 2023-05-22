@@ -48,7 +48,7 @@ public class Form_1 extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        panel = new javax.swing.JLayeredPane();
+        panel = new javax.swing.JPanel();
         card1 = new com.raven.component.Card();
         card2 = new com.raven.component.Card();
         card3 = new com.raven.component.Card();
@@ -58,6 +58,16 @@ public class Form_1 extends javax.swing.JPanel {
         table = new com.raven.swing.Table();
 
         setBackground(new java.awt.Color(242, 242, 242));
+        numberLabel = new JLabel();
+        numberLabel.setFont(new Font("SansSerif", Font.BOLD, 36));
+        numberLabel.setForeground(Color.BLACK);
+        numberLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        numberLabel.setVerticalAlignment(SwingConstants.TOP);
+        numberLabel.setBounds(700, 20, 150, 50); // Adjust the bounds as needed
+        // add(numberLabel);
+        // panel.revalidate();
+
+        
 
         // jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
         // jLabel1.setForeground(new java.awt.Color(106, 106, 106));
@@ -101,7 +111,7 @@ public class Form_1 extends javax.swing.JPanel {
         p.setBackground(Color.WHITE);
         spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         
-        // Set the layout and add the components
+      // Set the layout and add the components
         setLayout(new java.awt.BorderLayout());
         add(spTable, java.awt.BorderLayout.WEST);
         table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021"});
@@ -116,14 +126,17 @@ public class Form_1 extends javax.swing.JPanel {
         table.addRow(new Object[]{"Red Cross Fundraiser", "San Francisco", "5", "15 May, 2023"});
         
         //Goal NUmber
-        numberLabel = new JLabel();
-        numberLabel.setFont(new Font("SansSerif", Font.BOLD, 36));
-        numberLabel.setForeground(Color.RED);
-        numberLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        numberLabel.setVerticalAlignment(SwingConstants.TOP);
+        
         numberLabel.setBounds(700, 20, 150, 50); // Adjust the bounds as needed
-        panel.add(numberLabel);
-        int number = 123; // Replace with your desired number
+        int number = 0; // Replace with your desired number
+
+
+        numberLabel.setText(Integer.toString(number));
+
+
+
+
+
         numberLabel.setText(Integer.toString(number));
 
 
@@ -138,7 +151,7 @@ public class Form_1 extends javax.swing.JPanel {
     private com.raven.component.Card card2;
     private com.raven.component.Card card3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLayeredPane panel;
+    private JPanel panel;
     private com.raven.swing.PanelBorder panelBorder1;
     private javax.swing.JScrollPane spTable;
     private com.raven.swing.Table table;

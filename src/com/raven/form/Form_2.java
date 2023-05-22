@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.Normalizer.Form;
+import javax.swing.JFrame;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -35,15 +36,9 @@ public class Form_2 extends javax.swing.JPanel{
         JPanel p = new JPanel();
         p.setBackground(Color.WHITE);
         spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
+        JFrame newFrame = new javax.swing.JFrame();
 
-        //Goal Number
-        numberLabel = new JLabel();
-        numberLabel.setFont(new Font("SansSerif", Font.BOLD, 36));
-        numberLabel.setForeground(Color.RED);
-        numberLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        numberLabel.setVerticalAlignment(SwingConstants.TOP);
-        numberLabel.setBounds(700, 20, 150, 50);
-        panel.add(numberLabel);
+       
         //  table.addRow(new VolEvent("Dog Shelter", "Pleasanton Dog Shelter", "3", "25 Apr, 2020", StatusType.PENDING));
         table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021"});  
         table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021"});
@@ -84,7 +79,7 @@ public class Form_2 extends javax.swing.JPanel{
         setBackground(new java.awt.Color(242, 242, 242));
 
         panel.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
-        
+
 
         panelBorder1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -155,6 +150,8 @@ public class Form_2 extends javax.swing.JPanel{
                 .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
+
+
     }
     
     
