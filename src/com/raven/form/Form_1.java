@@ -67,42 +67,7 @@ public class Form_1 extends javax.swing.JPanel {
         add(numberLabel);
 
         
-        //numberLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-       // numberLabel.setVerticalAlignment(SwingConstants.TOP);
-      // numberLabel.setBounds(650, 150, 1000, 100); 
-       //numberLabel.setPreferredSize(new Dimension(400, 400)); // Adjust the preferred size as needed
-   
-        // panel.revalidate();
-
         
-
-        // jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        // jLabel1.setForeground(new java.awt.Color(106, 106, 106));
-        // jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        // jLabel1.setText("Form 1");
-
-        // javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        // this.setLayout(layout);
-        // layout.setHorizontalGroup(
-        //     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        //     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-        //         .addContainerGap()
-        //         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-        //         .addContainerGap())
-        // );
-        // layout.setVerticalGroup(
-        //     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        //     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-        //         .addGap(128, 128, 128)
-        //         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        //         .addGap(125, 125, 125))
-        // );
-        // spTable.setVerticalScrollBar(new ScrollBar());
-        // spTable.getVerticalScrollBar().setBackground(Color.WHITE);
-        // spTable.getViewport().setBackground(Color.WHITE);
-        // JPanel p = new JPanel();
-        // p.setBackground(Color.WHITE);
-        // spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
 
 
         table = new com.raven.swing.Table();
@@ -139,16 +104,19 @@ public class Form_1 extends javax.swing.JPanel {
        
        
          // Adjust the bounds as needed
-        int number = 0; // Replace with your desired number
+        int totalHours = 0; // Replace with your desired number
+
+        for(int i = 0; i<table.getColumnCount(); i++){
+            totalHours+=Integer.valueOf(table.getValueAt(i, 2).toString());
+        }
+
+        numberLabel.setText(Integer.toString(totalHours));
 
 
-        numberLabel.setText(Integer.toString(number));
 
 
 
 
-
-        numberLabel.setText(Integer.toString(number));
 
 
 
