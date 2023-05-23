@@ -49,9 +49,9 @@ public class Form_2 extends javax.swing.JPanel{
                 int selectedRow = table.getSelectedRow();
                 String evName = table.getValueAt(selectedRow, 0).toString();
                 String evLocation = table.getValueAt(selectedRow,1).toString();
-                int hoursLogged = Integer.valueOf(table.getValueAt(selectedRow, 2).toString());
+                int evHours = Integer.valueOf(table.getValueAt(selectedRow, 2).toString());
                 String evDate = table.getValueAt(selectedRow, 3).toString();
-                eventLog newEv = new eventLog(evName, evLocation, hoursLogged, evDate);
+                eventLog newEv = new eventLog(evName, evLocation, evHours, evDate);
                 Main.setForm(newEv);
 
                 

@@ -47,8 +47,9 @@ public class Main extends javax.swing.JFrame {
                     setForm(form2);
                 } else if (index == 3) {
                     setForm(form3);
-                }else if(index ==5 ){System.exit(0);}
-                
+                } else if (index == 5) {
+                    System.exit(0);
+                } 
             }
         });
         //  set when system open start with home form
