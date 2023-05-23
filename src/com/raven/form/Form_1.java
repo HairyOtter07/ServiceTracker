@@ -61,10 +61,24 @@ public class Form_1 extends javax.swing.JPanel {
         setBackground(new java.awt.Color(242, 242, 242));
         numberLabel = new JLabel();
         numberLabel.setFont(new Font("SansSerif", Font.BOLD, 85));
-        numberLabel.setForeground(Color.BLACK);
-        numberLabel.setBounds(700, -150, 400, 400);
+        numberLabel.setForeground(Color.WHITE);
+        numberLabel.setBounds(700, -120, 400, 400);
+        JLabel hoursApprovedLabel = new JLabel("Hours Approved");
+        hoursApprovedLabel.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        hoursApprovedLabel.setForeground(Color.WHITE);
+        hoursApprovedLabel.setBounds(700, -50, 400, 400);
+
+
+        card1.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Hour Goal: 100", "1/01/2024", "PVSA Award"));
+        card1.setBounds(700, -150, 400, 400);
+
+// Set the card colors
+
+
         //numberLabel.setSize(300,300 );
         add(numberLabel);
+        add(hoursApprovedLabel);
+        add(panel);
 
         
         
@@ -100,6 +114,11 @@ public class Form_1 extends javax.swing.JPanel {
         table.addRow(new Object[]{"Red Cross Fundraiser", "San Francisco", "5", "15 May, 2023"});
         
         //Goal NUmber
+        card1.setColor1(new java.awt.Color(142, 142, 250));
+        card1.setColor2(new java.awt.Color(123, 123, 245));
+        panel.add(card1);
+        add(panel);
+
        
        
        
