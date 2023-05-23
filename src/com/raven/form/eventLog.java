@@ -200,6 +200,8 @@ import com.raven.model.Model_Card;
 import com.raven.model.StatusType;
 import com.raven.swing.ScrollBar;
 import com.raven.model.VolEvent;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.TextField;
 import java.util.ArrayList;
@@ -226,26 +228,35 @@ public class eventLog extends javax.swing.JPanel {
     /**
      * Creates new form Form_1
      */
-    public eventLog(String ev,  String loc, int hours, String date) {
+    public eventLog(String evName,  String evLocation, int evHours, String evDate) {
         initComponents();
-        // Create a label for the name
         
-        JLabel nameLabel = new JLabel(ev);
-        //JLabel Description = new JLabel(dec);
-        JLabel dateLabel = new JLabel(date);
-        JLabel titleLabel = new JLabel(loc);
-        JLabel a = new JLabel("A");
-        JLabel b = new JLabel("B");
+        JLabel nameLabel = new JLabel(evName);
+        JLabel locationLabel = new JLabel(evLocation);
+        JLabel hoursLabel = new JLabel("(" + evHours + " Hours)");
+        JLabel dateLabel = new JLabel(evDate);
+
+        JPanel infoPanel = new JPanel(new BorderLayout());
+        JPanel timePanel = new JPanel(new BorderLayout());
+
+        infoPanel.add(locationLabel, BorderLayout.WEST);
+        timePanel.add(dateLabel, BorderLayout.WEST);
+        timePanel.add(hoursLabel, BorderLayout.EAST);
+        infoPanel.add(timePanel, BorderLayout.EAST);
+
+        infoPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        timePanel.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        nameLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        locationLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        hoursLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        dateLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         // Set layout and add the label
-        setLayout(new java.awt.GridLayout(5, 2));
-        setBorder(BorderFactory.createLineBorder(Color.red));
-        add(nameLabel);
-       // add(Description);
-        add(dateLabel);
-        add(titleLabel);
-        add(a);
-        add(b);
+        setLayout(new BorderLayout());
+        setBorder(BorderFactory.createLineBorder(Color.RED));
+        add(nameLabel, BorderLayout.NORTH);
+        add(infoPanel, BorderLayout.SOUTH);
     }
 
     @SuppressWarnings("unchecked")
