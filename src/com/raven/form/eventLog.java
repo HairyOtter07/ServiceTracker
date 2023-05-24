@@ -203,6 +203,7 @@ import com.raven.model.VolEvent;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.TextField;
 import java.util.ArrayList;
 import java.util.jar.Attributes.Name;
@@ -211,9 +212,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 import com.raven.model.Model_Menu;
 import javax.swing.BorderFactory;
+import javax.swing.GroupLayout;
 import javax.swing.JOptionPane;
 
 import javax.swing.JLabel;
@@ -236,27 +239,59 @@ public class eventLog extends javax.swing.JPanel {
         JLabel hoursLabel = new JLabel("(" + evHours + " Hours)");
         JLabel dateLabel = new JLabel(evDate);
 
-        JPanel infoPanel = new JPanel(new BorderLayout());
-        JPanel timePanel = new JPanel(new BorderLayout());
+        nameLabel.setFont(new Font("SansSerif", Font.BOLD, 36));
 
-        infoPanel.add(locationLabel, BorderLayout.WEST);
-        timePanel.add(dateLabel, BorderLayout.WEST);
-        timePanel.add(hoursLabel, BorderLayout.EAST);
-        infoPanel.add(timePanel, BorderLayout.EAST);
+        locationLabel.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        locationLabel.setForeground(new Color(100, 100, 100));
+        locationLabel.setIcon(new ImageIcon(getClass().getResource("/com/raven/icon/gray_map_pin2.png")));
 
-        infoPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
-        timePanel.setBorder(BorderFactory.createLineBorder(Color.RED));
 
-        nameLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
-        locationLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
-        hoursLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
-        dateLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
 
-        // Set layout and add the label
-        setLayout(new BorderLayout());
-        setBorder(BorderFactory.createLineBorder(Color.RED));
-        add(nameLabel, BorderLayout.NORTH);
-        add(infoPanel, BorderLayout.SOUTH);
+        // JPanel infoPanel = new JPanel(new BorderLayout());
+        // JPanel timePanel = new JPanel(new BorderLayout());
+
+        // infoPanel.add(locationLabel, BorderLayout.WEST);
+        // timePanel.add(dateLabel, BorderLayout.WEST);
+        // timePanel.add(hoursLabel, BorderLayout.EAST);
+        // infoPanel.add(timePanel, BorderLayout.EAST);
+
+        // infoPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        // timePanel.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        // nameLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        // locationLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        // hoursLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        // dateLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        // // Set layout and add the label
+        // setLayout(new BorderLayout());
+        // setBorder(BorderFactory.createLineBorder(Color.RED));
+        // add(nameLabel, BorderLayout.NORTH);
+        // add(infoPanel, BorderLayout.SOUTH);
+
+        // Set layout and add the labels
+        GroupLayout layout = new GroupLayout(this);
+        setLayout(layout);
+
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addComponent(nameLabel)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(locationLabel)
+                    .addGap(745, 745, 745)
+                    .addComponent(dateLabel)
+                    .addGap(15, 15, 15)
+                    .addComponent(hoursLabel))
+        );
+        layout.setVerticalGroup(
+            layout.createSequentialGroup()
+                .addComponent(nameLabel)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(locationLabel)
+                    .addComponent(dateLabel)
+                    .addComponent(hoursLabel))
+        );
+
     }
 
     @SuppressWarnings("unchecked")
