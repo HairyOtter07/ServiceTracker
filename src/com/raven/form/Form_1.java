@@ -71,6 +71,13 @@ public class Form_1 extends javax.swing.JPanel {
 
         card1.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Hour Goal: 100", "1/01/2024", "PVSA Award"));
         card1.setBounds(700, -150, 400, 400);
+        card2.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Input Event", "monkey ", " balls"));
+        card2.setBounds(700, 200, 500, 500);
+        card2.setColor1(new java.awt.Color(186, 123, 247));
+        card2.setColor2(new java.awt.Color(167, 94, 236));
+        card1.setColor1(new java.awt.Color(142, 142, 250));
+        card1.setColor2(new java.awt.Color(123, 123, 245));
+
 
 // Set the card colors
 
@@ -114,9 +121,9 @@ public class Form_1 extends javax.swing.JPanel {
         table.addRow(new Object[]{"Red Cross Fundraiser", "San Francisco", "5", "15 May, 2023"});
         
         //Goal NUmber
-        card1.setColor1(new java.awt.Color(142, 142, 250));
-        card1.setColor2(new java.awt.Color(123, 123, 245));
+        
         panel.add(card1);
+        panel.add(card2);
         add(panel);
 
        
