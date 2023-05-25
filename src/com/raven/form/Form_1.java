@@ -145,16 +145,16 @@ public class Form_1 extends javax.swing.JPanel {
       // Set the layout and add the components
         setLayout(new java.awt.BorderLayout());
         add(spTable, java.awt.BorderLayout.WEST);
-        table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "12 Jul, 2021"});
-        table.addRow(new Object[]{"Youth Mentoring", "Community Center", "2", "8 Sep, 2022"});
-        table.addRow(new Object[]{"Fundraising Gala", "Grand Ballroom", "6", "19 Nov, 2023"});
-        table.addRow(new Object[]{"Hospital Volunteer", "City General Hospital", "4", "2 Mar, 2024"});
-        table.addRow(new Object[]{"Senior Home Visits", "Golden Acres Senior Home", "3", "10 Aug, 2024"});
-        table.addRow(new Object[]{"Community Garden", "Green Thumb Park", "4", "5 May, 2025"});
-        table.addRow(new Object[]{"Reading Program", "Public Library", "2", "14 Sep, 2025"});
-        table.addRow(new Object[]{"Homeless Shelter", "Hope Haven Shelter", "5", "9 Dec, 2026"});
-        table.addRow(new Object[]{"Blood Drive", "Community Center", "3", "20 Mar, 2027"});
-        table.addRow(new Object[]{"Red Cross Fundraiser", "San Francisco", "5", "15 May, 2023"});
+        table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "07/12/2021"});
+        table.addRow(new Object[]{"Youth Mentoring", "Community Center", "2", "09/08/2022"});
+        table.addRow(new Object[]{"Fundraising Gala", "Grand Ballroom", "6", "11/19/2023"});
+        table.addRow(new Object[]{"Hospital Volunteer", "City General Hospital", "4", "03/02/2024"});
+        table.addRow(new Object[]{"Senior Home Visits", "Golden Acres Senior Home", "3", "08/10/2024"});
+        table.addRow(new Object[]{"Community Garden", "Green Thumb Park", "4", "05/05/2025"});
+        table.addRow(new Object[]{"Reading Program", "Public Library", "2", "09/14/2025"});
+        table.addRow(new Object[]{"Homeless Shelter", "Hope Haven Shelter", "5", "12/09/2026"});
+        table.addRow(new Object[]{"Blood Drive", "Community Center", "3", "03/20/2027"});
+        table.addRow(new Object[]{"Red Cross Fundraiser", "San Francisco", "5", "05/15/2023"});
         
         //Goal NUmber
         
