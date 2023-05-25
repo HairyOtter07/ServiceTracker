@@ -201,14 +201,16 @@ public class Form_1 extends javax.swing.JPanel {
         // inputPanel.setBackground(Color.WHITE);
 
         // Add the labels and text fields to the input panel
-        panel.add(eventLabel);
-        panel.add(eventTextField);
-        panel.add(locationLabel);
-        panel.add(locationTextField);
-        panel.add(hoursLabel);
-        panel.add(hoursTextField);
-        panel.add(dateLabel);
-        panel.add(dateTextField);
+        JPanel fields = new JPanel(new java.awt.GridLayout(8, 1));
+
+        fields.add(eventLabel);
+        fields.add(eventTextField);
+        fields.add(locationLabel);
+        fields.add(locationTextField);
+        fields.add(hoursLabel);
+        fields.add(hoursTextField);
+        fields.add(dateLabel);
+        fields.add(dateTextField);
         eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 36));
         eventTextField.setPreferredSize(new Dimension(200, 36));
         locationTextField.setFont(new Font("SansSerif", Font.PLAIN, 36));
@@ -217,6 +219,7 @@ public class Form_1 extends javax.swing.JPanel {
         hoursTextField.setPreferredSize(new Dimension(200, 30));
         dateTextField.setFont(new Font("SansSerif", Font.PLAIN, 36));
         dateTextField.setPreferredSize(new Dimension(200, 30));
+        panel.add(fields);
 
 // Add some spacing between the card and the text fields
 
