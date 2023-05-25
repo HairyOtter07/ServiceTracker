@@ -93,6 +93,7 @@ public class Form_1 extends javax.swing.JPanel {
         card1.setColor1(new java.awt.Color(142, 142, 250));
         card1.setColor2(new java.awt.Color(123, 123, 245));
         
+        
 
 
 
@@ -209,36 +210,31 @@ public class Form_1 extends javax.swing.JPanel {
         // inputPanel.setBackground(Color.WHITE);
 
         // Add the labels and text fields to the input panel
-<<<<<<< HEAD
+
         //panel.add(xLabel);
 
 
         // Create GridBagConstraints object
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.anchor = GridBagConstraints.NORTHEAST;
-        gbc.insets = new Insets(5, 5, 5, 5); // Add some spacing
 
-        panel.add(card1,gbc);
-
-        panel.add(eventLabel);
-
-        panel.add(eventTextField);
-
-        panel.add(locationLabel);
-        panel.add(locationTextField);
-       // panel.add(xLabel2);
-        panel.add(hoursLabel);
-        panel.add(hoursTextField);
-        //panel.add(xLabel);
-        panel.add(dateLabel);
-        panel.add(dateTextField);
         eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
         card1.setPreferredSize(new Dimension(500, 200));
-        eventTextField.setPreferredSize(new Dimension(300, 36));
+        eventTextField.setPreferredSize(new Dimension(300, 18));
         locationTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
-=======
-        JPanel fields = new JPanel(new java.awt.GridLayout(8, 1));
 
+        JPanel fields = new JPanel(new java.awt.GridLayout(8, 1));
+        fields.setPreferredSize(new Dimension(500, 500));
+        fields.setBackground(Color.WHITE);
+
+
+        eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        eventTextField.setSize(new Dimension(300, 18));
+        locationTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
+
+        locationTextField.setPreferredSize(new Dimension(300, 18));
+        hoursTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        hoursTextField.setPreferredSize(new Dimension(300, 18));
+        dateTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        dateTextField.setPreferredSize(new Dimension(300, 18));
         fields.add(eventLabel);
         fields.add(eventTextField);
         fields.add(locationLabel);
@@ -247,15 +243,7 @@ public class Form_1 extends javax.swing.JPanel {
         fields.add(hoursTextField);
         fields.add(dateLabel);
         fields.add(dateTextField);
-        eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 36));
-        eventTextField.setPreferredSize(new Dimension(200, 36));
-        locationTextField.setFont(new Font("SansSerif", Font.PLAIN, 36));
->>>>>>> 57f7c6aa23e860412c58f84e5e6ad05a062cf224
-        locationTextField.setPreferredSize(new Dimension(200, 30));
-        hoursTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        hoursTextField.setPreferredSize(new Dimension(200, 30));
-        dateTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        dateTextField.setPreferredSize(new Dimension(200, 30));
+      
         panel.add(fields);
 
 
