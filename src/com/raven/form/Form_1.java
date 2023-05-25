@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -20,6 +21,9 @@ import javax.swing.SwingConstants;
 import java.awt.font.*;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -82,18 +86,13 @@ public class Form_1 extends javax.swing.JPanel {
         hoursApprovedLabel.setBounds(700, -50, 400, 400);
 
 
+
         card1.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Hour Goal: 100", "1/01/2024", "PVSA Award"));
         card1.setBounds(700, -150, 400, 400);
-        card2.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), " ", " ", " "));
-        card2.setBounds(700, 200, 500, 500);
-        card2.setSize(900, 800);
         panel.setSize(1000, 1000);card2.setLocation(700, -150); 
-        card2.setColor1(new java.awt.Color(245, 245, 245));
         card1.setColor1(new java.awt.Color(142, 142, 250));
         card1.setColor2(new java.awt.Color(123, 123, 245));
-        card2.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), " ", "  ", "  "));
-        card3.setColor1(new java.awt.Color(245, 245, 245));
-        card3.setColor2(new java.awt.Color(245, 245, 245));
+        
 
 
 
@@ -105,6 +104,9 @@ public class Form_1 extends javax.swing.JPanel {
         add(numberLabel);
         add(hoursApprovedLabel);
         add(panel);
+
+
+
 
         eventTextField = new javax.swing.JTextField();
         locationTextField = new javax.swing.JTextField();
@@ -131,6 +133,7 @@ public class Form_1 extends javax.swing.JPanel {
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object[][]{},
             new String[]{"Event", "Location", "Hours Logged", "Date"}
+            
         ));
         
         // Create the scroll pane and add the table to it
@@ -184,6 +187,11 @@ public class Form_1 extends javax.swing.JPanel {
         locationLabel = new JLabel("Location:");
         hoursLabel = new JLabel("Hours Logged:");
         dateLabel = new JLabel("Date:");
+        // JLabel xLabel = new JLabel("                       ");
+        // JLabel xLabel1 = new JLabel("                          ");
+        // JLabel xLabel2 = new JLabel("                            ");
+        // JLabel xLabel3 = new JLabel("                            ");
+
 
         eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 12));
         locationTextField.setFont(new Font("SansSerif", Font.PLAIN, 12));
@@ -201,48 +209,37 @@ public class Form_1 extends javax.swing.JPanel {
         // inputPanel.setBackground(Color.WHITE);
 
         // Add the labels and text fields to the input panel
+        //panel.add(xLabel);
+
+
+        // Create GridBagConstraints object
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.anchor = GridBagConstraints.NORTHEAST;
+        gbc.insets = new Insets(5, 5, 5, 5); // Add some spacing
+
+        panel.add(card1,gbc);
+
         panel.add(eventLabel);
+
         panel.add(eventTextField);
+
         panel.add(locationLabel);
         panel.add(locationTextField);
+       // panel.add(xLabel2);
         panel.add(hoursLabel);
         panel.add(hoursTextField);
+        //panel.add(xLabel);
         panel.add(dateLabel);
         panel.add(dateTextField);
-        eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 36));
-        eventTextField.setPreferredSize(new Dimension(200, 36));
-        locationTextField.setFont(new Font("SansSerif", Font.PLAIN, 36));
+        eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        card1.setPreferredSize(new Dimension(500, 200));
+        eventTextField.setPreferredSize(new Dimension(300, 36));
+        locationTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
         locationTextField.setPreferredSize(new Dimension(200, 30));
-        hoursTextField.setFont(new Font("SansSerif", Font.PLAIN, 36));
+        hoursTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
         hoursTextField.setPreferredSize(new Dimension(200, 30));
-        dateTextField.setFont(new Font("SansSerif", Font.PLAIN, 36));
+        dateTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
         dateTextField.setPreferredSize(new Dimension(200, 30));
-
-// Add some spacing between the card and the text fields
-
-
-        // Add the input panel to the main panel
-       // add(inputPanel, java.awt.BorderLayout.NORTH);
-
-
-        // JPanel buttonPanel = new JPanel();
-        // buttonPanel.setBackground(Color.WHITE);
-
-        // // Add the button to the button panel
-        // addButton = new javax.swing.JButton("Add");
-        // addButton.addActionListener(new ActionListener() {
-        //     public void actionPerformed(ActionEvent e) {
-        //         addEventData();
-        //     }
-        // });
-        // buttonPanel.add(addButton);
-
-        // // Add the button panel to the main panel
-        // add(buttonPanel, java.awt.BorderLayout.SOUTH);
-
-
-
-
 
 
 
@@ -258,10 +255,10 @@ public class Form_1 extends javax.swing.JPanel {
         table.addRow(new Object[]{event, location, hours, date});
 
         // Clear the text fields
-        eventTextField.setText("");
-        locationTextField.setText("");
-        hoursTextField.setText("");
-        dateTextField.setText("");
+        eventTextField.setText("Event");
+        locationTextField.setText("Location");
+        hoursTextField.setText("Hours");
+        dateTextField.setText("Date");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

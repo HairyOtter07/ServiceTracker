@@ -8,13 +8,17 @@ public class VolEvent {
     private int hoursLogged;
     private String date;
     private String status;
+    private String[] jobs;
+    private String description;
     
-    public VolEvent(String eventName, String location, int hoursLogged, String date, String status) {
+    public VolEvent(String eventName, String location, int hoursLogged, String date, String status, String[] jobs, String description) {
         this.eventName = eventName;
         this.location = location;
         this.hoursLogged = hoursLogged;
         this.date = date;
         this.status = status;
+        this.jobs = jobs;
+        this.description = description;
     }
     
     public String getEventName() {
@@ -43,6 +47,12 @@ public class VolEvent {
     
     public String getDate() {
         return date;
+    }
+    public String getDescription(){
+        return description;
+    }
+    public String[] getJobs(){
+        return jobs;
     }
     
     public void setDate(String date) {
