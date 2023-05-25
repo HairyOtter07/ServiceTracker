@@ -196,6 +196,7 @@
 
 package com.raven.form;
 
+import com.raven.main.Main;
 import com.raven.model.Model_Card;
 import com.raven.model.StatusType;
 import com.raven.swing.ScrollBar;
@@ -205,9 +206,13 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.TextField;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.jar.Attributes.Name;
 import java.awt.GridLayout;
+import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -226,26 +231,38 @@ import javax.swing.JPanel;
  *
  * author RAVEN
  */
-public class eventLog extends javax.swing.JPanel {
+public class eventLog extends javax.swing.JPanel implements MouseListener {
 
     /**
      * Creates new form Form_1
      */
     public eventLog(String evName,  String evLocation, int evHours, String evDate) {
         initComponents();
+
+        this.setSize(evHours, evHours);
         
-        JLabel nameLabel = new JLabel(evName);
-        JLabel locationLabel = new JLabel(evLocation);
-        JLabel hoursLabel = new JLabel("(" + evHours + " Hours)");
-        JLabel dateLabel = new JLabel(evDate);
+        nameLabel = new JLabel(evName);
+        locationLabel = new JLabel(evLocation);
+        hoursLabel = new JLabel("(" + evHours + " Hours)");
+        dateLabel = new JLabel(evDate);
+        backLabel = new JLabel("Back");
 
-        nameLabel.setFont(new Font("SansSerif", Font.BOLD, 36));
+        subtitleFont = new Font("SansSerif", Font.PLAIN, 18);
 
-        locationLabel.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        nameLabel.setFont(new Font("SansSerif", Font.BOLD, 50));
+
+        locationLabel.setFont(subtitleFont);
         locationLabel.setForeground(new Color(100, 100, 100));
-        locationLabel.setIcon(new ImageIcon(getClass().getResource("/com/raven/icon/gray_map_pin2.png")));
+        locationLabel.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("/com/raven/icon/gray_map_pin2.png")).getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
 
+        hoursLabel.setFont(subtitleFont);
 
+        dateLabel.setFont(subtitleFont);
+
+        backLabel.setIcon(new ImageIcon(getClass().getResource("/com/raven/icon/back.png")));
+        backLabel.setFont(subtitleFont);
+        backLabel.setForeground(new Color(100, 100, 100));
+        backLabel.addMouseListener(this);
 
         // JPanel infoPanel = new JPanel(new BorderLayout());
         // JPanel timePanel = new JPanel(new BorderLayout());
@@ -273,19 +290,28 @@ public class eventLog extends javax.swing.JPanel {
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
 
+        int dateTimeGap = 10;
+        int horizGap = 940 - locationLabel.getPreferredSize().width - dateLabel.getPreferredSize().width - dateTimeGap - hoursLabel.getPreferredSize().width;
+        int backGap = 940 - nameLabel.getPreferredSize().width - backLabel.getPreferredSize().width;
+
         layout.setHorizontalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                .addComponent(nameLabel)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(nameLabel)
+                    .addGap(backGap,backGap, backGap)
+                    .addComponent(backLabel))
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(locationLabel)
-                    .addGap(745, 745, 745)
+                    .addGap(horizGap, horizGap, horizGap)
                     .addComponent(dateLabel)
-                    .addGap(15, 15, 15)
+                    .addGap(dateTimeGap, dateTimeGap, dateTimeGap)
                     .addComponent(hoursLabel))
         );
         layout.setVerticalGroup(
             layout.createSequentialGroup()
-                .addComponent(nameLabel)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                    .addComponent(nameLabel)
+                    .addComponent(backLabel))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(locationLabel)
                     .addComponent(dateLabel)
@@ -303,5 +329,40 @@ public class eventLog extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-        private com.raven.component.Card card4;
+        private Form_2 form2;
+        private JLabel nameLabel;
+        private JLabel locationLabel;
+        private JLabel hoursLabel;
+        private JLabel dateLabel;
+        private JLabel backLabel;
+        private Font subtitleFont;
+
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (!e.getSource().equals(backLabel)) return;
+            form2 = new Form_2();
+            Main.setForm(form2);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            if (!e.getSource().equals(backLabel)) return;
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            if (!e.getSource().equals(backLabel)) return;
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            return;
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            return;
+        }
+
 }
