@@ -14,6 +14,8 @@ import javax.swing.JScrollPane;
 public class Form_Home extends javax.swing.JPanel{
     public ArrayList<VolEvent> eventsFinished = new ArrayList<VolEvent>();
 
+    // this is a test
+
     public Form_Home() {
         initComponents();
         card1.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")), "Pleasanton FunRun", "Tomorrow", "4 hours"));
@@ -102,11 +104,11 @@ public class Form_Home extends javax.swing.JPanel{
 
             },
             new String [] {
-                "Event", "Description", "Location", "Hours Logged", "Date", "Status"
+                "Event", "Location", "Hours Logged", "Date", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
