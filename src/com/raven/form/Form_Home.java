@@ -104,11 +104,11 @@ public class Form_Home extends javax.swing.JPanel{
 
             },
             new String [] {
-                "Event", "Description", "Location", "Hours Logged", "Date", "Status"
+                "Event", "Location", "Hours Logged", "Date", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
