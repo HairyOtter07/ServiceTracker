@@ -372,9 +372,9 @@ public class Form_1 extends javax.swing.JPanel {
         editPanel.add(evField);
         editPanel.add(new JLabel("Location:"));
         editPanel.add(locField);
-        editPanel.add(new JLabel("Date:"));
-        editPanel.add(dateField);
         editPanel.add(new JLabel("Hours:"));
+        editPanel.add(dateField);
+        editPanel.add(new JLabel("Date:"));
         editPanel.add(hoursField);
     
         int result = JOptionPane.showOptionDialog(
