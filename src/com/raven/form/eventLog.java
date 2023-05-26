@@ -34,41 +34,43 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import com.raven.swing.Table;
 
-
 import javax.swing.JTextArea;
 import java.awt.Dimension;
+
 /**
  *
  * author RAVEN
  */
 public class eventLog extends javax.swing.JPanel implements MouseListener {
 
-    //private JTextArea descTextArea;
-/**
- * Make a array or arraylist full of descriptions for events
- * Make  arraylist full of job[] Strings for events
- * take the id for each event and plug it in to descriptions[id] and jobs[id]
- * when you click on an event it returns the id of that event, that id can be used to to take the specific description you wrote out in the array jobs
- * 
-    
-
-
+    // private JTextArea descTextArea;
     /**
+     * Make a array or arraylist full of descriptions for events
+     * Make arraylist full of job[] Strings for events
+     * take the id for each event and plug it in to descriptions[id] and jobs[id]
+     * when you click on an event it returns the id of that event, that id can be
+     * used to to take the specific description you wrote out in the array jobs
+     * 
+     * 
+     * 
+     * 
+     * /**
      * Creates new form Form_1
      */
-    public eventLog(String evName,  String evLocation, int evHours, String evDate, int id) {
+    public eventLog(String evName, String evLocation, int evHours, String evDate, int id) {
         initComponents();
         createAndShowGUI();
-      table  = new Table();
-      JScrollPane scrollPane = new JScrollPane(table);
-      // Customize the scroll pane if needed
-  
-      // Add the scroll pane to the center of the panel
-      add(scrollPane, BorderLayout.CENTER);
+        table = new Table();
+        JScrollPane scrollPane = new JScrollPane(table);
+        // Customize the scroll pane if needed
 
-         String[] descriptions = {"Description: Join us for a rewarding volunteer activity as we come together to clean up Ocean Beach, one of the most beautiful coastal areas in our community. This initiative aims to preserve the natural beauty of the beach and protect marine life by removing litter and debris. ", 
-         "Description: Join us for a rewarding volunteer day at Mohr Elementary School and make a positive impact on the lives of young students. This volunteer activity aims to support the school community by providing assistance with various tasks and creating an enriching environment for students.",
-          "Description: Become a mentor and make a positive impact on the lives of young individuals in our community by joining our Youth Mentoring Program at the Community Center. This volunteer activity aims to provide guidance, support, and encouragement to youth, empowering them to reach their full potential and navigate the challenges they may face."};
+        // Add the scroll pane to the center of the panel
+        add(scrollPane, BorderLayout.CENTER);
+
+        String[] descriptions = {
+                "Description: Join us for a rewarding volunteer activity as we come together to clean up Ocean Beach, one of the most beautiful coastal areas in our community. This initiative aims to preserve the natural beauty of the beach and protect marine life by removing litter and debris. ",
+                "Description: Join us for a rewarding volunteer day at Mohr Elementary School and make a positive impact on the lives of young students. This volunteer activity aims to support the school community by providing assistance with various tasks and creating an enriching environment for students.",
+                "Description: Become a mentor and make a positive impact on the lives of young individuals in our community by joining our Youth Mentoring Program at the Community Center. This volunteer activity aims to provide guidance, support, and encouragement to youth, empowering them to reach their full potential and navigate the challenges they may face." };
 
         this.setSize(evHours, evHours);
 
@@ -79,33 +81,34 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         descTextArea.setWrapStyleWord(true);
         descTextArea.setEditable(false);
 
-       // descTextArea.setPreferredSize(new Dimension(400,50));
+        // descTextArea.setPreferredSize(new Dimension(400,50));
 
-       int textAreaWidth = 100;  // Set the desired width of the text area
+        int textAreaWidth = 100; // Set the desired width of the text area
         int textAreaHeight = 50; // Set the desired height of the text area
         descTextArea.setSize(textAreaWidth, textAreaHeight);
         descTextArea.setPreferredSize(new Dimension(textAreaWidth, textAreaHeight));
-         descTextArea.setBounds(0,100,1000,100); 
-        descTextArea.setPreferredSize(new Dimension(300,50));       
+        descTextArea.setBounds(0, 100, 1000, 100);
+        descTextArea.setPreferredSize(new Dimension(300, 50));
         add(descTextArea);
-        
+
         nameLabel = new JLabel(evName);
         locationLabel = new JLabel(evLocation);
         hoursLabel = new JLabel("(" + evHours + " Hours)");
         dateLabel = new JLabel(evDate);
         backLabel = new JLabel("Back");
-        //descLabel = new JLabel(descriptions[id]);
+        // descLabel = new JLabel(descriptions[id]);
 
         subtitleFont = new Font("SansSerif", Font.PLAIN, 18);
 
         nameLabel.setFont(new Font("SansSerif", Font.BOLD, 50));
 
-        //descLabel.setFont(subtitleFont);
-        //descLabel.setForeground(new Color(100, 100, 100));
+        // descLabel.setFont(subtitleFont);
+        // descLabel.setForeground(new Color(100, 100, 100));
 
         locationLabel.setFont(subtitleFont);
         locationLabel.setForeground(new Color(100, 100, 100));
-        locationLabel.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("/com/raven/icon/gray_map_pin2.png")).getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+        locationLabel.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("/com/raven/icon/gray_map_pin2.png"))
+                .getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
 
         hoursLabel.setFont(subtitleFont);
 
@@ -116,113 +119,100 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         backLabel.setForeground(new Color(100, 100, 100));
         backLabel.addMouseListener(this);
 
-       
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
 
         int dateTimeGap = 10;
-        int horizGap = 940 - locationLabel.getPreferredSize().width - dateLabel.getPreferredSize().width - dateTimeGap - hoursLabel.getPreferredSize().width;
+        int horizGap = 940 - locationLabel.getPreferredSize().width - dateLabel.getPreferredSize().width - dateTimeGap
+                - hoursLabel.getPreferredSize().width;
         int backGap = 940 - nameLabel.getPreferredSize().width - backLabel.getPreferredSize().width;
 
         layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(nameLabel)
-                    .addGap(backGap,backGap, backGap)
-                    .addComponent(backLabel))
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(locationLabel)
-                    .addGap(horizGap, horizGap, horizGap)
-                    .addComponent(dateLabel)
-                    .addGap(dateTimeGap, dateTimeGap, dateTimeGap)
-                    .addComponent(hoursLabel))
-                .addGroup(layout.createSequentialGroup()
-                   // .addComponent(descTextArea)
-                   )
-                    
-        );
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(nameLabel)
+                                .addGap(backGap, backGap, backGap)
+                                .addComponent(backLabel))
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(locationLabel)
+                                .addGap(horizGap, horizGap, horizGap)
+                                .addComponent(dateLabel)
+                                .addGap(dateTimeGap, dateTimeGap, dateTimeGap)
+                                .addComponent(hoursLabel))
+                        .addGroup(layout.createSequentialGroup()));
         layout.setVerticalGroup(
-            layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                    .addComponent(nameLabel)
-                    .addComponent(backLabel))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(locationLabel)
-                    .addComponent(dateLabel)
-                    .addComponent(hoursLabel))
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                 //   .addComponent(descTextArea)
-                 )
-        );
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                                .addComponent(nameLabel)
+                                .addComponent(backLabel))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(locationLabel)
+                                .addComponent(dateLabel)
+                                .addComponent(hoursLabel))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)));
     }
-
-
-    
 
     private void addTableToPanel() {
         // Create the table data
         String[][] jobData = {
-            {"Job 1", "Cleaning", "10 AM", "2 hours"},
-            {"Job 2", "Gardening", "12 PM", "3 hours"},
-            {"Job 3", "Teaching", "2 PM", "4 hours"},
-            {"Job 4", "Event Setup", "4 PM", "2 hours"}
+                { "Job 1", "Cleaning", "10 AM", "2 hours" },
+                { "Job 2", "Gardening", "12 PM", "3 hours" },
+                { "Job 3", "Teaching", "2 PM", "4 hours" },
+                { "Job 4", "Event Setup", "4 PM", "2 hours" }
         };
-    
+
         // Create the table column names
-        String[] columnNames = {"Job ID", "Job Name", "Time", "Duration"};
-    
+        String[] columnNames = { "Job ID", "Job Name", "Time", "Duration" };
+
         // Create the JTable with the data and column names
         JTable table = new JTable(jobData, columnNames);
         table.setFillsViewportHeight(true);
-    
+
         // Create a JScrollPane and add the JTable to it
         JScrollPane scrollPane = new JScrollPane(table);
-    
+
         // Set the layout of the eventLog panel to BorderLayout
         setLayout(new BorderLayout());
-    
+
         // Add the JScrollPane to the center of the eventLog panel
         add(scrollPane, BorderLayout.CENTER);
     }
-    
+
     private static void createAndShowGUI() {
         // Create the JFrame
         // JFrame frame = new JFrame("Volunteer Job Table");
         // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setSize(500, 300);
-    
+
         // Create the table data
         String[][] jobData = {
-            {"Job 1", "Cleaning", "10 AM", "2 hours"},
-            {"Job 2", "Gardening", "12 PM", "3 hours"},
-            {"Job 3", "Teaching", "2 PM", "4 hours"},
-            {"Job 4", "Event Setup", "4 PM", "2 hours"}
+                { "Job 1", "Cleaning", "10 AM", "2 hours" },
+                { "Job 2", "Gardening", "12 PM", "3 hours" },
+                { "Job 3", "Teaching", "2 PM", "4 hours" },
+                { "Job 4", "Event Setup", "4 PM", "2 hours" }
         };
-    
+
         // Create the table column names
-        String[] columnNames = {"Job ID", "Job Name", "Time", "Duration"};
-    
+        String[] columnNames = { "Job ID", "Job Name", "Time", "Duration" };
+
         // Create the JTable with the data and column names
         JTable table = new JTable(jobData, columnNames);
         table.setFillsViewportHeight(true);
-    
+
         // Create a JScrollPane and add the JTable to it
         JScrollPane scrollPane = new JScrollPane(table);
-    
+
         // Add the JScrollPane to the JFrame
         // frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
-    
+
         // // Display the JFrame
         // frame.setVisible(true);
 
     }
-    
-
-       
-
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         setBackground(new java.awt.Color(242, 242, 242));
@@ -230,43 +220,44 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-        private Form_2 form2;
-        private JLabel nameLabel;
-        private JLabel locationLabel;
-        private JLabel hoursLabel;
-        private JLabel dateLabel;
-        private JLabel backLabel;
-        private Font subtitleFont;
-        private JTextArea descTextArea;
-        private Table table;
+    private Form_2 form2;
+    private JLabel nameLabel;
+    private JLabel locationLabel;
+    private JLabel hoursLabel;
+    private JLabel dateLabel;
+    private JLabel backLabel;
+    private Font subtitleFont;
+    private JTextArea descTextArea;
+    private Table table;
 
-
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            if (!e.getSource().equals(backLabel)) return;
-            form2 = new Form_2();
-            Main.setForm(form2);
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-            if (!e.getSource().equals(backLabel)) return;
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            if (!e.getSource().equals(backLabel)) return;
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if (!e.getSource().equals(backLabel))
             return;
-        }
+        form2 = new Form_2();
+        Main.setForm(form2);
+    }
 
-        @Override
-        public void mouseExited(MouseEvent e) {
+    @Override
+    public void mousePressed(MouseEvent e) {
+        if (!e.getSource().equals(backLabel))
             return;
-        }
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        if (!e.getSource().equals(backLabel))
+            return;
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        return;
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        return;
+    }
 
 }

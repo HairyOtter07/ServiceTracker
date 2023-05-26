@@ -77,7 +77,8 @@ public class ListMenu<E extends Object> extends JList<E> {
     public ListCellRenderer<? super E> getCellRenderer() {
         return new DefaultListCellRenderer() {
             @Override
-            public Component getListCellRendererComponent(JList<?> jlist, Object o, int index, boolean selected, boolean focus) {
+            public Component getListCellRendererComponent(JList<?> jlist, Object o, int index, boolean selected,
+                    boolean focus) {
                 Model_Menu data;
                 if (o instanceof Model_Menu) {
                     data = (Model_Menu) o;
