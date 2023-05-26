@@ -69,12 +69,16 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         descTextArea.setLineWrap(true); // Enable line wrapping
         descTextArea.setWrapStyleWord(true);
         descTextArea.setEditable(false);
+
        // descTextArea.setPreferredSize(new Dimension(400,50));
 
        int textAreaWidth = 100;  // Set the desired width of the text area
         int textAreaHeight = 50; // Set the desired height of the text area
         descTextArea.setSize(textAreaWidth, textAreaHeight);
         descTextArea.setPreferredSize(new Dimension(textAreaWidth, textAreaHeight));
+         descTextArea.setBounds(0,100,1000,100); 
+        descTextArea.setPreferredSize(new Dimension(300,50));       
+        add(descTextArea);
         
         nameLabel = new JLabel(evName);
         locationLabel = new JLabel(evLocation);
@@ -146,7 +150,8 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
                     .addGap(dateTimeGap, dateTimeGap, dateTimeGap)
                     .addComponent(hoursLabel))
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(descTextArea))
+                   // .addComponent(descTextArea)
+                   )
                     
         );
         layout.setVerticalGroup(
@@ -159,10 +164,50 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
                     .addComponent(dateLabel)
                     .addComponent(hoursLabel))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(descTextArea))
+                 //   .addComponent(descTextArea)
+                 )
         );
+    }
+
+
+    
+
+    private static void createAndShowGUI() {
+        // Create the JFrame
+        JFrame frame = new JFrame("Volunteer Job Table");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 300);
+
+        // Create the table data
+        String[][] jobData = {
+                {"Job 1", "Cleaning", "10 AM", "2 hours"},
+                {"Job 2", "Gardening", "12 PM", "3 hours"},
+                {"Job 3", "Teaching", "2 PM", "4 hours"},
+                {"Job 4", "Event Setup", "4 PM", "2 hours"}
+        };
+
+        // Create the table column names
+        String[] columnNames = {"Job ID", "Job Name", "Time", "Duration"};
+
+        // Create the JTable with the data and column names
+        JTable table = new JTable(jobData, columnNames);
+        table.setFillsViewportHeight(true);
+
+        // Create a JScrollPane and add the JTable to it
+        JScrollPane scrollPane = new JScrollPane(table);
+
+        // Add the JScrollPane to the JFrame
+        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+
+        // Display the JFrame
+        frame.setVisible(true);
+ 
 
     }
+
+
+       
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
