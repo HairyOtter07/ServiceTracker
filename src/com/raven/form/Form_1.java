@@ -357,25 +357,25 @@ public class Form_1 extends javax.swing.JPanel {
     private void showEditDialog(int selectedRow) {
         JPanel editPanel = new JPanel();
         editPanel.setLayout(new GridLayout(5, 2));
-       
-        String evName = table.getValueAt(selectedRow, 0).toString();
-            String evLocation = table.getValueAt(selectedRow,1).toString();
-            String evHours = table.getValueAt(selectedRow, 2).toString();
-            String evDate = table.getValueAt(selectedRow, 3).toString();
     
-        JTextField eventTextField = new JTextField(evName);
-        JTextField locationTextField = new JTextField();
-        JTextField dateTextField = new JTextField();
-        JTextField hoursTextField = new JTextField();
+        String evName = table.getValueAt(selectedRow, 0).toString();
+        String evLocation = table.getValueAt(selectedRow, 1).toString();
+        String evHours = table.getValueAt(selectedRow, 2).toString();
+        String evDate = table.getValueAt(selectedRow, 3).toString();
+    
+        JTextField evField = new JTextField(evName);
+        JTextField locField = new JTextField(evLocation);
+        JTextField dateField = new JTextField(evHours);
+        JTextField hoursField = new JTextField(evDate);
     
         editPanel.add(new JLabel("Event:"));
-        editPanel.add(eventTextField);
+        editPanel.add(evField);
         editPanel.add(new JLabel("Location:"));
-        editPanel.add(locationTextField);
+        editPanel.add(locField);
         editPanel.add(new JLabel("Date:"));
-        editPanel.add(dateTextField);
+        editPanel.add(dateField);
         editPanel.add(new JLabel("Hours:"));
-        editPanel.add(hoursTextField);
+        editPanel.add(hoursField);
     
         int result = JOptionPane.showOptionDialog(
             null, // Parent component (null for default)
@@ -390,20 +390,34 @@ public class Form_1 extends javax.swing.JPanel {
     
         if (result == JOptionPane.OK_OPTION) {
             // OK button clicked, retrieve the values from the text fields
-            
-
-            eventTextField.setText(evName);
-            hoursTextField.setText(evLocation);
-            locationTextField.setText(evHours);
-             dateTextField.setText(evDate);
+            String ev = evField.getText();
+            String loc = locField.getText();
+            String hours = hoursField.getText();
+            String date = dateField.getText();
     
-            // Perform your edit logic here
-            // ...
-        } else {
+            // Validate the input fields
+            
+                // Perform your edit logic here
+                // ...
+                evField.setText("");
+                hoursField.setText("");
+                locField.setText("");
+                dateField.setText("");
+                Main.formHaddRow(new Object[]{ev, loc, hours, date, StatusType.PENDING}, 0);
+                totalHours -= Integer.valueOf(table.getValueAt(selectedRow, 2).toString());
+                table.removeRow(selectedRow);
+                numberLabel.setText(Integer.toString(totalHours));
+                JOptionPane.showMessageDialog(null, "Event Submitted for Review!");
+    
+                // Validate the entered date
+                
+            }
+         else {
             // Cancel button clicked or dialog closed
             // Handle cancel action or do nothing
         }
     }
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
