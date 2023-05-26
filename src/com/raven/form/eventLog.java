@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.jar.Attributes.Name;
 import java.awt.GridLayout;
 import java.awt.Image;
+import javax.swing.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -32,12 +33,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import javax.swing.JTextArea;
+import java.awt.Dimension;
 /**
  *
  * author RAVEN
  */
 public class eventLog extends javax.swing.JPanel implements MouseListener {
 
+    //private JTextArea descTextArea;
 /**
  * Make a array or arraylist full of descriptions for events
  * Make  arraylist full of job[] Strings for events
@@ -53,23 +57,38 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
     public eventLog(String evName,  String evLocation, int evHours, String evDate, int id) {
         initComponents();
 
-         String[] descriptions = {"sucking dick ", "eating balls"};
+         String[] descriptions = {"Description: Join us for a rewarding volunteer activity as we come together to clean up Ocean Beach, one of the most beautiful coastal areas in our community. This initiative aims to preserve the natural beauty of the beach and protect marine life by removing litter and debris. ", 
+         "Description: Join us for a rewarding volunteer day at Mohr Elementary School and make a positive impact on the lives of young students. This volunteer activity aims to support the school community by providing assistance with various tasks and creating an enriching environment for students.",
+          "Description: Become a mentor and make a positive impact on the lives of young individuals in our community by joining our Youth Mentoring Program at the Community Center. This volunteer activity aims to provide guidance, support, and encouragement to youth, empowering them to reach their full potential and navigate the challenges they may face."};
 
         this.setSize(evHours, evHours);
+
+        descTextArea = new JTextArea(descriptions[id]); // Use JTextArea instead of JLabel
+        descTextArea.setFont(subtitleFont);
+        descTextArea.setForeground(new Color(100, 100, 100));
+        descTextArea.setLineWrap(true); // Enable line wrapping
+        descTextArea.setWrapStyleWord(true);
+        descTextArea.setEditable(false);
+       // descTextArea.setPreferredSize(new Dimension(400,50));
+
+       int textAreaWidth = 100;  // Set the desired width of the text area
+        int textAreaHeight = 50; // Set the desired height of the text area
+        descTextArea.setSize(textAreaWidth, textAreaHeight);
+        descTextArea.setPreferredSize(new Dimension(textAreaWidth, textAreaHeight));
         
         nameLabel = new JLabel(evName);
         locationLabel = new JLabel(evLocation);
         hoursLabel = new JLabel("(" + evHours + " Hours)");
         dateLabel = new JLabel(evDate);
         backLabel = new JLabel("Back");
-        descLabel = new JLabel(descriptions[id]);
+        //descLabel = new JLabel(descriptions[id]);
 
         subtitleFont = new Font("SansSerif", Font.PLAIN, 18);
 
         nameLabel.setFont(new Font("SansSerif", Font.BOLD, 50));
 
-        descLabel.setFont(subtitleFont);
-        descLabel.setForeground(new Color(100, 100, 100));
+        //descLabel.setFont(subtitleFont);
+        //descLabel.setForeground(new Color(100, 100, 100));
 
         locationLabel.setFont(subtitleFont);
         locationLabel.setForeground(new Color(100, 100, 100));
@@ -127,7 +146,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
                     .addGap(dateTimeGap, dateTimeGap, dateTimeGap)
                     .addComponent(hoursLabel))
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(descLabel))
+                    .addComponent(descTextArea))
                     
         );
         layout.setVerticalGroup(
@@ -140,7 +159,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
                     .addComponent(dateLabel)
                     .addComponent(hoursLabel))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(descLabel))
+                    .addComponent(descTextArea))
         );
 
     }
@@ -161,7 +180,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         private JLabel dateLabel;
         private JLabel backLabel;
         private Font subtitleFont;
-        private JLabel descLabel;
+        private JTextArea descTextArea;
 
 
         @Override
