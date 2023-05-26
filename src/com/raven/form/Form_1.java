@@ -26,6 +26,7 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
@@ -175,6 +176,8 @@ public class Form_1 extends javax.swing.JPanel {
         table.addRow(new Object[]{"Homeless Shelter", "Hope Haven Shelter", "5", "12/09/2026"});
         table.addRow(new Object[]{"Blood Drive", "Community Center", "3", "03/20/2027"});
         table.addRow(new Object[]{"Red Cross Fundraiser", "San Francisco", "5", "05/15/2023"});
+
+        
         
         //Goal NUmber
         
@@ -187,9 +190,9 @@ public class Form_1 extends javax.swing.JPanel {
        
        
          // Adjust the bounds as needed
-        int totalHours = 0; // Replace with your desired number
+        totalHours = 0;; // Replace with your desired number
 
-        for(int i = 0; i<table.getColumnCount(); i++){
+        for(int i = 0; i<table.getRowCount(); i++){
             totalHours+=Integer.valueOf(table.getValueAt(i, 2).toString());
         }
 
@@ -258,14 +261,15 @@ public class Form_1 extends javax.swing.JPanel {
                                 String loc = locationTextField.getText();
                                 String hours = hoursTextField.getText();
                                 String date = dateTextField.getText(); 
-                                
-                                table.addRow(new Object[]{ev, loc, hours, date},0);
-                                Main.formHaddRow(new Object[]{ev, loc, hours, date, StatusType.PENDING},0);
-                                
                                 eventTextField.setText("");
                                 hoursTextField.setText("");
                                 locationTextField.setText("");
                                 dateTextField.setText("");
+                                
+                                Main.formHaddRow(new Object[]{ev, loc, hours, date, StatusType.PENDING},0);
+                                JOptionPane.showMessageDialog(null, "Event Submitted for Review!");
+                                
+                                
 
                                 // Validate the entered date
                                 SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -294,7 +298,42 @@ public class Form_1 extends javax.swing.JPanel {
         table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-            
+                int selectedRow = table.getSelectedRow();
+        
+                // Create an array of options for the popup
+                Object[] options = {"Delete", "Edit"};
+        
+                // Show the popup and get the user's choice
+                int choice = JOptionPane.showOptionDialog(
+                    null, // Parent component (null for default)
+                    "Choose an action:", // Message
+                    "Row Actions", // Title
+                    JOptionPane.DEFAULT_OPTION, // Option type
+                    JOptionPane.PLAIN_MESSAGE, // Message type
+                    null, // Icon (null for default)
+                    options, // Options array
+                    options[0] // Default option
+                );
+        
+                // Handle the user's choice
+                switch (choice) {
+                    case 0:
+                        // Delete button clicked
+                        // Add your delete logic here
+                        totalHours -= Integer.valueOf(table.getValueAt(selectedRow, 2).toString());
+                        table.removeRow(selectedRow);
+                        numberLabel.setText(Integer.toString(totalHours));
+                        break;
+                        
+                    case 1:
+                        // Edit button clicked
+                        // Add your edit logic here
+                        showEditDialog(selectedRow);
+                        
+                    default:
+                        // Do nothing or handle unexpected choice
+                        break;
+                }
             }
         });
         
@@ -315,7 +354,57 @@ public class Form_1 extends javax.swing.JPanel {
 
     }// </editor-fold>//GEN-END:initComponents
 
-     
+    private void showEditDialog(int selectedRow) {
+        JPanel editPanel = new JPanel();
+        editPanel.setLayout(new GridLayout(5, 2));
+       
+        String evName = table.getValueAt(selectedRow, 0).toString();
+            String evLocation = table.getValueAt(selectedRow,1).toString();
+            String evHours = table.getValueAt(selectedRow, 2).toString();
+            String evDate = table.getValueAt(selectedRow, 3).toString();
+    
+        JTextField eventTextField = new JTextField(evName);
+        JTextField locationTextField = new JTextField();
+        JTextField dateTextField = new JTextField();
+        JTextField hoursTextField = new JTextField();
+    
+        editPanel.add(new JLabel("Event:"));
+        editPanel.add(eventTextField);
+        editPanel.add(new JLabel("Location:"));
+        editPanel.add(locationTextField);
+        editPanel.add(new JLabel("Date:"));
+        editPanel.add(dateTextField);
+        editPanel.add(new JLabel("Hours:"));
+        editPanel.add(hoursTextField);
+    
+        int result = JOptionPane.showOptionDialog(
+            null, // Parent component (null for default)
+            editPanel, // Custom panel to display
+            "Edit Details", // Title
+            JOptionPane.OK_CANCEL_OPTION, // Option type
+            JOptionPane.PLAIN_MESSAGE, // Message type
+            null, // Icon (null for default)
+            new Object[] { "OK", "Cancel" }, // Options array
+            "OK" // Default option
+        );
+    
+        if (result == JOptionPane.OK_OPTION) {
+            // OK button clicked, retrieve the values from the text fields
+            
+
+            eventTextField.setText(evName);
+            hoursTextField.setText(evLocation);
+            locationTextField.setText(evHours);
+             dateTextField.setText(evDate);
+    
+            // Perform your edit logic here
+            // ...
+        } else {
+            // Cancel button clicked or dialog closed
+            // Handle cancel action or do nothing
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
 
@@ -329,7 +418,7 @@ public class Form_1 extends javax.swing.JPanel {
     private com.raven.swing.Table table;
     private javax.swing.JTextField textField;
     private JLabel numberLabel;
-
+    private int totalHours;
 
 
     // End of variables declaration//GEN-END:variables

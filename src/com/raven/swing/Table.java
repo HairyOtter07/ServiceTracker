@@ -55,4 +55,8 @@ public class Table extends JTable {
         DefaultTableModel model = (DefaultTableModel) getModel();
         model.insertRow(x, row);
     }
+    public void removeRow(int index){
+        DefaultTableModel model = (DefaultTableModel) getModel();
+        model.removeRow(index);
+    }
 }
