@@ -41,7 +41,7 @@ public class Form_2 extends javax.swing.JPanel{
        
         //  table.addRow(new VolEvent("Dog Shelter", "Pleasanton Dog Shelter", "3", "25 Apr, 2020", StatusType.PENDING));
         table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "07/12/2021"});  
-        table.addRow(new Object[]{"Beach Cleanup", "Ocean Beach", "5", "07/12/2021"});
+        table.addRow(new Object[]{"Mohr Elementary Fair", "Mohr Elementary", "4", "03/24/2022"});
         table.addRow(new Object[]{"Youth Mentoring", "Community Center", "2", "09/08/2022"});
         table.addMouseListener(new MouseAdapter() {
             @Override
