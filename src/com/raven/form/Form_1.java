@@ -200,10 +200,10 @@ public class Form_1 extends javax.swing.JPanel {
         locationTextField = new javax.swing.JTextField();
         hoursTextField = new javax.swing.JTextField();
         dateTextField = new javax.swing.JTextField();
-        eventLabel = new JLabel("Event:");
-        locationLabel = new JLabel("Location:");
-        hoursLabel = new JLabel("Hours Logged:");
-        dateLabel = new JLabel("Date (mm/dd/yyyy):");
+        eventLabel = new JLabel(" Event:");
+        locationLabel = new JLabel(" Location:");
+        hoursLabel = new JLabel(" Hours Logged:");
+        dateLabel = new JLabel(" Date (mm/dd/yyyy):");
         
 
 
@@ -288,6 +288,13 @@ public class Form_1 extends javax.swing.JPanel {
                 } else {
                     JOptionPane.showMessageDialog(null, "You need to fill out the Event field.");
                 }
+            }
+        });
+
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            
             }
         });
         
