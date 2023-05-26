@@ -96,7 +96,7 @@ public class Form_1 extends javax.swing.JPanel {
         numberLabel.setFont(new Font("SansSerif", Font.BOLD, 85));
         numberLabel.setForeground(Color.WHITE);
         numberLabel.setBounds(700, -120, 400, 400);
-        JLabel hoursApprovedLabel = new JLabel("Hours Approved");
+        JLabel hoursApprovedLabel = new JLabel("Total Hours");
         hoursApprovedLabel.setFont(new Font("SansSerif", Font.PLAIN, 18));
         hoursApprovedLabel.setForeground(Color.WHITE);
         hoursApprovedLabel.setBounds(700, -50, 400, 400);
@@ -267,7 +267,11 @@ public class Form_1 extends javax.swing.JPanel {
                                 dateTextField.setText("");
                                 
                                 Main.formHaddRow(new Object[]{ev, loc, hours, date, StatusType.PENDING},0);
+                                table.addRow(new Object[]{ev, loc, hours, date},0);
+
                                 JOptionPane.showMessageDialog(null, "Event Submitted for Review!");
+                                totalHours += Integer.valueOf(hours);
+                                numberLabel.setText(Integer.toString(totalHours));
                                 
                                 
 
@@ -365,8 +369,8 @@ public class Form_1 extends javax.swing.JPanel {
     
         JTextField evField = new JTextField(evName);
         JTextField locField = new JTextField(evLocation);
-        JTextField dateField = new JTextField(evHours);
-        JTextField hoursField = new JTextField(evDate);
+        JTextField dateField = new JTextField(evDate);
+        JTextField hoursField = new JTextField(evHours);
     
         editPanel.add(new JLabel("Event:"));
         editPanel.add(evField);
@@ -395,28 +399,25 @@ public class Form_1 extends javax.swing.JPanel {
             String hours = hoursField.getText();
             String date = dateField.getText();
     
-            // Validate the input fields
-            
-                // Perform your edit logic here
-                // ...
-                evField.setText("");
-                hoursField.setText("");
-                locField.setText("");
-                dateField.setText("");
-                Main.formHaddRow(new Object[]{ev, loc, hours, date, StatusType.EDIT}, 0);
-                totalHours -= Integer.valueOf(table.getValueAt(selectedRow, 2).toString());
-                table.removeRow(selectedRow);
-                numberLabel.setText(Integer.toString(totalHours));
-                JOptionPane.showMessageDialog(null, "Event Submitted for Review!");
+            // Perform your edit logic here
+            // ...
     
-                // Validate the entered date
-                
-            }
-         else {
+            table.removeRow(selectedRow);
+            table.addRow( new Object[]{ev, loc, hours, date},selectedRow);
+
+    
+            // Update the total hours
+            totalHours -= Integer.parseInt(evHours);
+            totalHours += Integer.parseInt(hours);
+            numberLabel.setText(Integer.toString(totalHours));
+    
+            JOptionPane.showMessageDialog(null, "Event Submitted for Review!");
+        } else {
             // Cancel button clicked or dialog closed
             // Handle cancel action or do nothing
         }
     }
+    
     
     
 
