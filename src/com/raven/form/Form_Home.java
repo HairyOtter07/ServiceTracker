@@ -163,7 +163,7 @@ public class Form_Home extends javax.swing.JPanel{
     }
     
     // </editor-fold>//GEN-END:initComponents
-    public void formHaddRow(String[] x){
+    public void formHaddRow(Object[] x){
         table.addRow(x);
     }
 

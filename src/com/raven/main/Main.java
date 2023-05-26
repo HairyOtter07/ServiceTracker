@@ -22,10 +22,10 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    private Form_Home home;
-    private Form_1 form1;
-    private Form_2 form2;
-    private Form_3 form3;
+    public static Form_Home home;
+    public static Form_1 form1;
+    public static Form_2 form2;
+    public static Form_3 form3;
 
 
     public Main() {
@@ -124,6 +124,10 @@ public class Main extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    public static void formHaddRow(Object[] x){
+        home.formHaddRow(x);
+    }
 
     /**
      * @param args the command line arguments
