@@ -53,7 +53,9 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
     public eventLog(String evName,  String evLocation, int evHours, String evDate, int id) {
         initComponents();
 
-         String[] descriptions = {"sucking dick ", "eating balls"};
+         String[] descriptions = {"cleaning up the beach with the bois  ", "eating balls"};
+         String [] jobs  = {"cleaner", "picker"};
+         //arraylist of jobs  - arraylist.add(new String[] {job a,m job b, job c})
 
         this.setSize(evHours, evHours);
         
