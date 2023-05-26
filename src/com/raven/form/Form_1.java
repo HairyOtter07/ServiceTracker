@@ -5,6 +5,7 @@
  */
 package com.raven.form;
 
+import com.raven.main.Main;
 import com.raven.model.Model_Card;
 import com.raven.model.StatusType;
 import com.raven.swing.ScrollBar;
@@ -20,12 +21,21 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.font.*;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 
@@ -46,6 +56,7 @@ public class Form_1 extends javax.swing.JPanel {
     private JLabel hoursLabel;
     private JLabel dateLabel;
     private javax.swing.JButton addButton;
+
     /**
      * Creates new form Form_1
      */
@@ -74,6 +85,10 @@ public class Form_1 extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         spTable = new javax.swing.JScrollPane();
         table = new com.raven.swing.Table();
+        addButton = new javax.swing.JButton("Add Event");
+         //10 is the radius
+        addButton.setForeground(Color.WHITE);
+        addButton.setBackground(new java.awt.Color(186, 123, 247));
 
         setBackground(new java.awt.Color(242, 242, 242));
         numberLabel = new JLabel();
@@ -92,7 +107,6 @@ public class Form_1 extends javax.swing.JPanel {
         panel.setSize(1000, 1000);card2.setLocation(700, -150); 
         card1.setColor1(new java.awt.Color(142, 142, 250));
         card1.setColor2(new java.awt.Color(123, 123, 245));
-        
         
 
 
@@ -128,6 +142,8 @@ public class Form_1 extends javax.swing.JPanel {
         hoursLabel.setFont(new Font("SansSerif", Font.PLAIN, 12));
         dateLabel.setFont(new Font("SansSerif", Font.PLAIN, 12));
         
+
+
 
 
         table = new com.raven.swing.Table();
@@ -187,11 +203,8 @@ public class Form_1 extends javax.swing.JPanel {
         eventLabel = new JLabel("Event:");
         locationLabel = new JLabel("Location:");
         hoursLabel = new JLabel("Hours Logged:");
-        dateLabel = new JLabel("Date:");
-        // JLabel xLabel = new JLabel("                       ");
-        // JLabel xLabel1 = new JLabel("                          ");
-        // JLabel xLabel2 = new JLabel("                            ");
-        // JLabel xLabel3 = new JLabel("                            ");
+        dateLabel = new JLabel("Date (mm/dd/yyyy):");
+        
 
 
         eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 12));
@@ -199,42 +212,24 @@ public class Form_1 extends javax.swing.JPanel {
         hoursTextField.setFont(new Font("SansSerif", Font.PLAIN, 12));
         dateTextField.setFont(new Font("SansSerif", Font.PLAIN, 12));
 
-        eventLabel.setFont(new Font("SansSerif", Font.PLAIN, 12));
-        locationLabel.setFont(new Font("SansSerif", Font.PLAIN, 12));
-        hoursLabel.setFont(new Font("SansSerif", Font.PLAIN, 12));
-        dateLabel.setFont(new Font("SansSerif", Font.PLAIN, 12));
+        eventLabel.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        locationLabel.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        hoursLabel.setFont(new Font("SansSerif", Font.PLAIN, 15));
+        dateLabel.setFont(new Font("SansSerif", Font.PLAIN, 15));
 
-        // Create a JPanel to hold the text fields and labels
-        // JPanel inputPanel = new JPanel();
-        // inputPanel.setLayout(new java.awt.GridLayout(4, 2, 10, 10));
-        // inputPanel.setBackground(Color.WHITE);
+        eventLabel.setForeground(Color.WHITE);
+        locationLabel.setForeground(Color.WHITE);
+        hoursLabel.setForeground(Color.WHITE);
+        dateLabel.setForeground(Color.WHITE);
 
-        // Add the labels and text fields to the input panel
-
-        //panel.add(xLabel);
-
-
-        // Create GridBagConstraints object
-
+        
         eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
         card1.setPreferredSize(new Dimension(500, 200));
-        eventTextField.setPreferredSize(new Dimension(300, 18));
+        eventTextField.setPreferredSize(new Dimension(300, 36));
         locationTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
 
-        JPanel fields = new JPanel(new java.awt.GridLayout(8, 1));
-        fields.setPreferredSize(new Dimension(500, 500));
-        fields.setBackground(Color.WHITE);
+        JPanel fields = new JPanel(new java.awt.GridLayout(8, 2));
 
-
-        eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        eventTextField.setSize(new Dimension(300, 18));
-        locationTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
-
-        locationTextField.setPreferredSize(new Dimension(300, 18));
-        hoursTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        hoursTextField.setPreferredSize(new Dimension(300, 18));
-        dateTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        dateTextField.setPreferredSize(new Dimension(300, 18));
         fields.add(eventLabel);
         fields.add(eventTextField);
         fields.add(locationLabel);
@@ -243,28 +238,77 @@ public class Form_1 extends javax.swing.JPanel {
         fields.add(hoursTextField);
         fields.add(dateLabel);
         fields.add(dateTextField);
-      
+        fields.add(addButton);
+        eventTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        eventTextField.setSize(new Dimension(100, 20));
+        locationTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        dateTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        hoursTextField.setFont(new Font("SansSerif", Font.PLAIN, 18));
+
+
+        
+        addButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (eventTextField.getText().length() != 0) {
+                    if (locationTextField.getText().length() != 0) {
+                        if ((hoursTextField.getText().length() == 1 || hoursTextField.getText().length() == 2 || hoursTextField.getText().length() == 3) && (hoursTextField.getText().matches("\\d+"))) {
+                            if (dateTextField.getText().matches("^\\d{1,2}/\\d{1,2}/\\d{4}$")) {
+                                String ev = eventTextField.getText();
+                                String loc = locationTextField.getText();
+                                String hours = hoursTextField.getText();
+                                String date = dateTextField.getText(); 
+                                
+                                table.addRow(new Object[]{ev, loc, hours, date},0);
+                                Main.formHaddRow(new Object[]{ev, loc, hours, date, StatusType.PENDING},0);
+                                
+                                eventTextField.setText("");
+                                hoursTextField.setText("");
+                                locationTextField.setText("");
+                                dateTextField.setText("");
+
+                                // Validate the entered date
+                                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+                                sdf.setLenient(false);
+                                try {
+                                    Date parsedDate = sdf.parse(date);
+                                    // Date is valid
+                                } catch (ParseException ex) {
+                                    JOptionPane.showMessageDialog(null, "You need to enter a valid date.");
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "You need to fill out the Date field correctly (mm/dd/yyyy).");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "You need to put a valid number of hours into the Hours Logged field.");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You need to fill out the Location field.");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "You need to fill out the Event field.");
+                }
+            }
+        });
+        
+
+// Rest of the code
+
+
+
+        locationTextField.setPreferredSize(new Dimension(200, 20));  
+        hoursTextField.setPreferredSize(new Dimension(200, 20));
+        dateTextField.setPreferredSize(new Dimension(200, 20));
+
+        fields.setBackground(new java.awt.Color(142, 142, 250));
+        fields.setPreferredSize(new Dimension(500,400));
         panel.add(fields);
 
 
 
     }// </editor-fold>//GEN-END:initComponents
 
-     private void addEventData() {
-        String event = eventTextField.getText();
-        String location = locationTextField.getText();
-        String hours = hoursTextField.getText();
-        String date = dateTextField.getText();
-
-        // Add the event data to the table
-        table.addRow(new Object[]{event, location, hours, date});
-
-        // Clear the text fields
-        eventTextField.setText("Event");
-        locationTextField.setText("Location");
-        hoursTextField.setText("Hours");
-        dateTextField.setText("Date");
-    }
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
 

@@ -128,6 +128,9 @@ public class Main extends javax.swing.JFrame {
     public static void formHaddRow(Object[] x){
         home.formHaddRow(x);
     }
+    public static void formHaddRow(Object[] x, int y){
+        home.formHaddRow(x,y);
+    }
 
     /**
      * @param args the command line arguments

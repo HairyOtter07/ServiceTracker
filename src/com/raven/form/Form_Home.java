@@ -166,6 +166,9 @@ public class Form_Home extends javax.swing.JPanel{
     public void formHaddRow(Object[] x){
         table.addRow(x);
     }
+    public void formHaddRow(Object[] x, int y){
+        table.addRow(x,y);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.component.Card card1;
