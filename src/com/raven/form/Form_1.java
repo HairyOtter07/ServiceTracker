@@ -403,7 +403,7 @@ public class Form_1 extends javax.swing.JPanel {
                 hoursField.setText("");
                 locField.setText("");
                 dateField.setText("");
-                Main.formHaddRow(new Object[]{ev, loc, hours, date, StatusType.PENDING}, 0);
+                Main.formHaddRow(new Object[]{ev, loc, hours, date, StatusType.EDIT}, 0);
                 totalHours -= Integer.valueOf(table.getValueAt(selectedRow, 2).toString());
                 table.removeRow(selectedRow);
                 numberLabel.setText(Integer.toString(totalHours));

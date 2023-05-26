@@ -95,7 +95,7 @@ public class Form_Home extends javax.swing.JPanel{
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel1.setText("Currently Done");
+        jLabel1.setText("Events Submitted");
 
         spTable.setBorder(null);
 

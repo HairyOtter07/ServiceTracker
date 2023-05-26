@@ -32,6 +32,8 @@ import javax.swing.JOptionPane;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import com.raven.swing.Table;
+
 
 import javax.swing.JTextArea;
 import java.awt.Dimension;
@@ -56,6 +58,13 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
      */
     public eventLog(String evName,  String evLocation, int evHours, String evDate, int id) {
         initComponents();
+        createAndShowGUI();
+      table  = new Table();
+      JScrollPane scrollPane = new JScrollPane(table);
+      // Customize the scroll pane if needed
+  
+      // Add the scroll pane to the center of the panel
+      add(scrollPane, BorderLayout.CENTER);
 
          String[] descriptions = {"Description: Join us for a rewarding volunteer activity as we come together to clean up Ocean Beach, one of the most beautiful coastal areas in our community. This initiative aims to preserve the natural beauty of the beach and protect marine life by removing litter and debris. ", 
          "Description: Join us for a rewarding volunteer day at Mohr Elementary School and make a positive impact on the lives of young students. This volunteer activity aims to support the school community by providing assistance with various tasks and creating an enriching environment for students.",
@@ -107,29 +116,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         backLabel.setForeground(new Color(100, 100, 100));
         backLabel.addMouseListener(this);
 
-        // JPanel infoPanel = new JPanel(new BorderLayout());
-        // JPanel timePanel = new JPanel(new BorderLayout());
-
-        // infoPanel.add(locationLabel, BorderLayout.WEST);
-        // timePanel.add(dateLabel, BorderLayout.WEST);
-        // timePanel.add(hoursLabel, BorderLayout.EAST);
-        // infoPanel.add(timePanel, BorderLayout.EAST);
-
-        // infoPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
-        // timePanel.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-        // nameLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
-        // locationLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
-        // hoursLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
-        // dateLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
-
-        // // Set layout and add the label
-        // setLayout(new BorderLayout());
-        // setBorder(BorderFactory.createLineBorder(Color.RED));
-        // add(nameLabel, BorderLayout.NORTH);
-        // add(infoPanel, BorderLayout.SOUTH);
-
-        // Set layout and add the labels
+       
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
 
@@ -172,39 +159,64 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
 
     
 
-    private static void createAndShowGUI() {
-        // Create the JFrame
-        JFrame frame = new JFrame("Volunteer Job Table");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 300);
-
+    private void addTableToPanel() {
         // Create the table data
         String[][] jobData = {
-                {"Job 1", "Cleaning", "10 AM", "2 hours"},
-                {"Job 2", "Gardening", "12 PM", "3 hours"},
-                {"Job 3", "Teaching", "2 PM", "4 hours"},
-                {"Job 4", "Event Setup", "4 PM", "2 hours"}
+            {"Job 1", "Cleaning", "10 AM", "2 hours"},
+            {"Job 2", "Gardening", "12 PM", "3 hours"},
+            {"Job 3", "Teaching", "2 PM", "4 hours"},
+            {"Job 4", "Event Setup", "4 PM", "2 hours"}
         };
-
+    
         // Create the table column names
         String[] columnNames = {"Job ID", "Job Name", "Time", "Duration"};
-
+    
         // Create the JTable with the data and column names
         JTable table = new JTable(jobData, columnNames);
         table.setFillsViewportHeight(true);
-
+    
         // Create a JScrollPane and add the JTable to it
         JScrollPane scrollPane = new JScrollPane(table);
-
+    
+        // Set the layout of the eventLog panel to BorderLayout
+        setLayout(new BorderLayout());
+    
+        // Add the JScrollPane to the center of the eventLog panel
+        add(scrollPane, BorderLayout.CENTER);
+    }
+    
+    private static void createAndShowGUI() {
+        // Create the JFrame
+        // JFrame frame = new JFrame("Volunteer Job Table");
+        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // frame.setSize(500, 300);
+    
+        // Create the table data
+        String[][] jobData = {
+            {"Job 1", "Cleaning", "10 AM", "2 hours"},
+            {"Job 2", "Gardening", "12 PM", "3 hours"},
+            {"Job 3", "Teaching", "2 PM", "4 hours"},
+            {"Job 4", "Event Setup", "4 PM", "2 hours"}
+        };
+    
+        // Create the table column names
+        String[] columnNames = {"Job ID", "Job Name", "Time", "Duration"};
+    
+        // Create the JTable with the data and column names
+        JTable table = new JTable(jobData, columnNames);
+        table.setFillsViewportHeight(true);
+    
+        // Create a JScrollPane and add the JTable to it
+        JScrollPane scrollPane = new JScrollPane(table);
+    
         // Add the JScrollPane to the JFrame
-        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
-
-        // Display the JFrame
-        frame.setVisible(true);
- 
+        // frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+    
+        // // Display the JFrame
+        // frame.setVisible(true);
 
     }
-
+    
 
        
 
@@ -226,6 +238,8 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         private JLabel backLabel;
         private Font subtitleFont;
         private JTextArea descTextArea;
+        private Table table;
+
 
 
         @Override
