@@ -68,6 +68,9 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
 
         nameLabel.setFont(new Font("SansSerif", Font.BOLD, 50));
 
+        descLabel.setFont(subtitleFont);
+        descLabel.setForeground(new Color(100, 100, 100));
+
         locationLabel.setFont(subtitleFont);
         locationLabel.setForeground(new Color(100, 100, 100));
         locationLabel.setIcon(new ImageIcon(new ImageIcon(getClass().getResource("/com/raven/icon/gray_map_pin2.png")).getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
@@ -123,6 +126,9 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
                     .addComponent(dateLabel)
                     .addGap(dateTimeGap, dateTimeGap, dateTimeGap)
                     .addComponent(hoursLabel))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(descLabel))
+                    
         );
         layout.setVerticalGroup(
             layout.createSequentialGroup()
@@ -133,6 +139,8 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
                     .addComponent(locationLabel)
                     .addComponent(dateLabel)
                     .addComponent(hoursLabel))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(descLabel))
         );
 
     }
