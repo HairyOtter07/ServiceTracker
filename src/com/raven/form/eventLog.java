@@ -153,14 +153,14 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
     private void initJobTable() {
         // Create the table data
         String[][] jobData = {
-            { "Job 1", "Cleaning", "10 AM", "2 hours", "2" },
-            { "Job 2", "Gardening", "12 PM", "3 hours", "2" },
-            { "Job 3", "Teaching", "2 PM", "4 hours", "2" },
-            { "Job 4", "Event Setup", "4 PM", "2 hours", "2" }
+            { "Cleaning", "10 AM", "2 hours", "2"  },
+            { "Gardening", "12 PM", "3 hours", "1" },
+            { "Teaching", "2 PM", "4 hours", "3" },
+            { "Event Setup", "4 PM", "2 hours", "4" }
         };
 
         // Create the table column names
-        String[] columnNames = { "Job ID", "Job Name", "Time", "Duration", "Slots" };
+        String[] columnNames = { "Job Name", "Time", "Duration", "Slots" };
 
         // Create the JTable with the data and column names
         // table = new JTable(jobData, columnNames);
