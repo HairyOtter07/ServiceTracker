@@ -44,6 +44,13 @@ import java.awt.Dimension;
  */
 public class eventLog extends javax.swing.JPanel implements MouseListener {
 
+
+    private String[][][] jobData = {
+        { { "Cleaning", "10 AM", "2 hours", "2" }, { "Bag Holding", "12 PM", "3 hours", "1" }, { "Glove Distributer", "2 PM", "4 hours", "3" }, { "Event Setup", "4 PM", "2 hours", "4" } },
+        { { "Food Bar", "2 PM", "2 hours", "2" }, { "Refreshments", "12 PM", "3 hours", "1" }, { "Event Set Up", "10 AM", "4 hours", "3" }, { "Event Clean Up", "4 PM", "1 hour", "4" } },
+        { { "Math Teacher", "2 PM", "2 hours", "2" }, { "English Tutor", "2 PM", "2 hours", "1" }, { "Coding Instructor", "2 PM", "2 hours", "3" }, { "Snacks and Drinks", "4 PM", "1 hour", "4" } }
+    };
+
     // private JTextArea descTextArea;
     /**
      * Make a array or arraylist full of descriptions for events
@@ -60,7 +67,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
      */
     public eventLog(String evName, String evLocation, int evHours, String evDate, int id) {
         initComponents();
-        initJobTable();
+        initJobTable(id);
 
         String[] descriptions = {
             "Description: Join us for a rewarding volunteer activity as we come together to clean up Ocean Beach, one of the most beautiful coastal areas in our community. This initiative aims to preserve the natural beauty of the beach and protect marine life by removing litter and debris. ",
@@ -150,14 +157,30 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         );
     }
 
-    private void initJobTable() {
+    private void initJobTable(int id) {
         // Create the table data
-        String[][] jobData = {
-            { "Cleaning", "10 AM", "2 hours", "2"  },
-            { "Gardening", "12 PM", "3 hours", "1" },
-            { "Teaching", "2 PM", "4 hours", "3" },
-            { "Event Setup", "4 PM", "2 hours", "4" }
-        };
+        String[][] jobs = jobData[id];
+        // String[][][] jobData = {
+        //     {   { "Cleaning", "10 AM", "2 hours", "2"  },
+        //         { "Bag Holding", "12 PM", "3 hours", "1" },
+        //         { "Glove Distributer", "2 PM", "4 hours", "3" },
+        //         { "Event Setup", "4 PM", "2 hours", "4" }
+        //     },
+        //     {
+        //         { "Food Bar", "2 PM", "2 hours", "2"  },
+        //         { "Refreshments", "12 PM", "3 hours", "1" },
+        //         { "Event Set Up", "10 AM", "4 hours", "3" },
+        //         { "Event Clean Up", "4 PM", "1 hour", "4" }
+        //     },
+        //     {
+        //         { "Math Teacher", "2 PM", "2 hours", "2"  },
+        //         { "English Tutor", "2 PM", "2 hours", "1" },
+        //         { "Coding Instructor", "2 PM", "2 hours", "3" },
+        //         { "Snacks and Drinks", "4 PM", "1 hour", "4" }
+        //     }
+
+            
+        // };
 
         // Create the table column names
         String[] columnNames = { "Job Name", "Time", "Duration", "Slots" };
@@ -165,7 +188,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         // Create the JTable with the data and column names
         // table = new JTable(jobData, columnNames);
         table = new Table();
-        table.setModel(new DefaultTableModel(jobData, columnNames) {
+        table.setModel(new DefaultTableModel(jobs, columnNames) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
