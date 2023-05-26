@@ -68,9 +68,10 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         add(scrollPane, BorderLayout.CENTER);
 
         String[] descriptions = {
-                "Description: Join us for a rewarding volunteer activity as we come together to clean up Ocean Beach, one of the most beautiful coastal areas in our community. This initiative aims to preserve the natural beauty of the beach and protect marine life by removing litter and debris. ",
-                "Description: Join us for a rewarding volunteer day at Mohr Elementary School and make a positive impact on the lives of young students. This volunteer activity aims to support the school community by providing assistance with various tasks and creating an enriching environment for students.",
-                "Description: Become a mentor and make a positive impact on the lives of young individuals in our community by joining our Youth Mentoring Program at the Community Center. This volunteer activity aims to provide guidance, support, and encouragement to youth, empowering them to reach their full potential and navigate the challenges they may face." };
+            "Description: Join us for a rewarding volunteer activity as we come together to clean up Ocean Beach, one of the most beautiful coastal areas in our community. This initiative aims to preserve the natural beauty of the beach and protect marine life by removing litter and debris. ",
+            "Description: Join us for a rewarding volunteer day at Mohr Elementary School and make a positive impact on the lives of young students. This volunteer activity aims to support the school community by providing assistance with various tasks and creating an enriching environment for students.",
+            "Description: Become a mentor and make a positive impact on the lives of young individuals in our community by joining our Youth Mentoring Program at the Community Center. This volunteer activity aims to provide guidance, support, and encouragement to youth, empowering them to reach their full potential and navigate the challenges they may face."
+        };
 
         this.setSize(evHours, evHours);
 
@@ -123,42 +124,43 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         setLayout(layout);
 
         int dateTimeGap = 10;
-        int horizGap = 940 - locationLabel.getPreferredSize().width - dateLabel.getPreferredSize().width - dateTimeGap
-                - hoursLabel.getPreferredSize().width;
+        int horizGap = 940 - locationLabel.getPreferredSize().width - dateLabel.getPreferredSize().width - dateTimeGap - hoursLabel.getPreferredSize().width;
         int backGap = 940 - nameLabel.getPreferredSize().width - backLabel.getPreferredSize().width;
 
         layout.setHorizontalGroup(
-                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(nameLabel)
-                                .addGap(backGap, backGap, backGap)
-                                .addComponent(backLabel))
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(locationLabel)
-                                .addGap(horizGap, horizGap, horizGap)
-                                .addComponent(dateLabel)
-                                .addGap(dateTimeGap, dateTimeGap, dateTimeGap)
-                                .addComponent(hoursLabel))
-                        .addGroup(layout.createSequentialGroup()));
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(nameLabel)
+                    .addGap(backGap, backGap, backGap)
+                    .addComponent(backLabel))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(locationLabel)
+                    .addGap(horizGap, horizGap, horizGap)
+                    .addComponent(dateLabel)
+                    .addGap(dateTimeGap, dateTimeGap, dateTimeGap)
+                    .addComponent(hoursLabel))
+                .addGroup(layout.createSequentialGroup())
+        );
         layout.setVerticalGroup(
-                layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
-                                .addComponent(nameLabel)
-                                .addComponent(backLabel))
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(locationLabel)
-                                .addComponent(dateLabel)
-                                .addComponent(hoursLabel))
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)));
+            layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                    .addComponent(nameLabel)
+                    .addComponent(backLabel))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                     .addComponent(locationLabel)
+                     .addComponent(dateLabel)
+                     .addComponent(hoursLabel))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE))
+        );
     }
 
     private void addTableToPanel() {
         // Create the table data
         String[][] jobData = {
-                { "Job 1", "Cleaning", "10 AM", "2 hours" },
-                { "Job 2", "Gardening", "12 PM", "3 hours" },
-                { "Job 3", "Teaching", "2 PM", "4 hours" },
-                { "Job 4", "Event Setup", "4 PM", "2 hours" }
+            { "Job 1", "Cleaning", "10 AM", "2 hours" },
+            { "Job 2", "Gardening", "12 PM", "3 hours" },
+            { "Job 3", "Teaching", "2 PM", "4 hours" },
+            { "Job 4", "Event Setup", "4 PM", "2 hours" }
         };
 
         // Create the table column names
@@ -186,10 +188,10 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
 
         // Create the table data
         String[][] jobData = {
-                { "Job 1", "Cleaning", "10 AM", "2 hours" },
-                { "Job 2", "Gardening", "12 PM", "3 hours" },
-                { "Job 3", "Teaching", "2 PM", "4 hours" },
-                { "Job 4", "Event Setup", "4 PM", "2 hours" }
+            { "Job 1", "Cleaning", "10 AM", "2 hours" },
+            { "Job 2", "Gardening", "12 PM", "3 hours" },
+            { "Job 3", "Teaching", "2 PM", "4 hours" },
+            { "Job 4", "Event Setup", "4 PM", "2 hours" }
         };
 
         // Create the table column names
