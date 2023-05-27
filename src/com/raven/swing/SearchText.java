@@ -15,6 +15,7 @@ public class SearchText extends JTextField {
         setBorder(new EmptyBorder(5, 5, 5, 5));
         setSelectionColor(new Color(220, 204, 182));
     }
+
     private final String hint = "Search here ...";
 
     @Override
@@ -22,7 +23,8 @@ public class SearchText extends JTextField {
         super.paint(g);
         if (getText().length() == 0) {
             int h = getHeight();
-            ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+            ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+                    RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
             Insets ins = getInsets();
             FontMetrics fm = g.getFontMetrics();
             int c0 = getBackground().getRGB();

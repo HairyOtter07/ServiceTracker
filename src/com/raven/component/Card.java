@@ -43,7 +43,8 @@ public class Card extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         lbIcon = new javax.swing.JLabel();
@@ -68,29 +69,27 @@ public class Card extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbDescription)
-                    .addComponent(lbValues)
-                    .addComponent(lbTitle)
-                    .addComponent(lbIcon))
-                .addContainerGap(283, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lbDescription)
+                                        .addComponent(lbValues)
+                                        .addComponent(lbTitle)
+                                        .addComponent(lbIcon))
+                                .addContainerGap(283, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lbIcon)
-                .addGap(18, 18, 18)
-                .addComponent(lbTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbValues)
-                .addGap(18, 18, 18)
-                .addComponent(lbDescription)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(lbIcon)
+                                .addGap(18, 18, 18)
+                                .addComponent(lbTitle)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbValues)
+                                .addGap(18, 18, 18)
+                                .addComponent(lbDescription)
+                                .addContainerGap(25, Short.MAX_VALUE)));
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
