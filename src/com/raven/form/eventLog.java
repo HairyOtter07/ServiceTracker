@@ -266,6 +266,8 @@ public class eventLog extends javax.swing.JPanel implements MouseListener, Actio
                     } else {
                         JOptionPane.showMessageDialog(null, "No slots available for this job.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please select a job to apply for.", "Apply For Job", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
