@@ -38,11 +38,18 @@ import com.raven.swing.Table;
 import javax.swing.JTextArea;
 import java.awt.Dimension;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 /**
  *
  * author RAVEN
  */
-public class eventLog extends javax.swing.JPanel implements MouseListener {
+public class eventLog extends javax.swing.JPanel implements MouseListener, ActionListener {
 
 
     private String[][][] jobData = {
@@ -51,6 +58,11 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         { { "Math Teacher", "2 PM", "2 hours", "2" }, { "English Tutor", "2 PM", "2 hours", "1" }, { "Coding Instructor", "2 PM", "2 hours", "3" }, { "Snacks and Drinks", "4 PM", "1 hour", "4" } }
     };
 
+    // private String[][][] jobData = {
+    //     { { "Cleaning", "2 hours", "2" }, { "Bag Holding", "3 hours", "1" }, { "Glove Distributer", "4 hours", "3" }, { "Event Setup", "2 hours", "4" } },
+    //     { { "Food Bar", "2 hours", "2" }, { "Refreshments", "3 hours", "1" }, { "Event Set Up", "4 hours", "3" }, { "Event Clean Up", "1 hour", "4" } },
+    //     { { "Math Teacher", "2 hours", "2" }, { "English Tutor", "2 hours", "1" }, { "Coding Instructor", "2 hours", "3" }, { "Snacks and Drinks", "1 hour", "4" } }
+    // };
     // private JTextArea descTextArea;
     /**
      * Make a array or arraylist full of descriptions for events
@@ -142,6 +154,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
                     .addComponent(hoursLabel))
                 .addComponent(descTextArea)
                 .addComponent(scrollPane)
+                .addComponent(addButton)
         );
         layout.setVerticalGroup(
             layout.createSequentialGroup()
@@ -154,6 +167,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
                     .addComponent(hoursLabel))
                 .addComponent(descTextArea)
                 .addComponent(scrollPane)
+                .addComponent(addButton)
         );
     }
 
@@ -184,9 +198,29 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
 
         // Create the table column names
         String[] columnNames = { "Job Name", "Time", "Duration", "Slots" };
-
+        //String[] columnNames = { "Job Name", "Duration", "Slots", "Apply" };
         // Create the JTable with the data and column names
         // table = new JTable(jobData, columnNames);
+
+        // Create the data for the Apply button column
+        //Object[][] tableData = new Object[jobs.length][columnNames.length];
+    // for (int i = 0; i < jobs.length; i++) {
+    //     tableData[i][0] = jobs[i][0];
+    //     tableData[i][1] = jobs[i][1];
+    //     tableData[i][2] = jobs[i][2];
+    //     //tableData[i][3] = jobs[i][3];
+    //     // Add the Apply button to the last column if slots are available
+    //     if (Integer.parseInt(jobs[i][2]) > 0) {
+    //         JButton applyButton = new JButton("Apply");
+    //         applyButton.setActionCommand(Integer.toString(i)); // Store the job index as the command
+    //         applyButton.addActionListener(this); // Add the ActionListener
+    //         tableData[i][3] = applyButton;
+    //     } else {
+    //         // No slots available, leave the cell empty
+    //         tableData[i][3] = null;
+    //     }
+    // }
+
         table = new Table();
         table.setModel(new DefaultTableModel(jobs, columnNames) {
             @Override
@@ -198,7 +232,46 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
         
         // Create a JScrollPane and add the JTable to it
         scrollPane = new JScrollPane(table);
+        
+        addButton = new JButton("Apply");
+        addButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int selectedRow = table.getSelectedRow();
+        
+                if (selectedRow != -1) {
+                    String jobName = table.getValueAt(selectedRow, 0).toString();
+                    String slots = table.getValueAt(selectedRow, 3).toString();
+        
+                    int availableSlots = Integer.parseInt(slots);
+                    if (availableSlots > 0) {
+                        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to apply for the job: " + jobName + "?", "Confirm Application", JOptionPane.YES_NO_OPTION);
+                        if (confirm == JOptionPane.YES_OPTION) {
+                            String name = JOptionPane.showInputDialog(null, "Enter your name:");
+                            if (name != null && !name.isEmpty()) {
+                                // Apply logic here
+                                // Decrease available slots by 1
+                                availableSlots--;
+        
+                                // Update the table with the new slot count
+                                table.setValueAt(availableSlots, selectedRow, 3);
+        
+                                // You can display a panel with a message using JOptionPane.showMessageDialog
+                                String message = "Application sent to Organization";
+                                JOptionPane.showMessageDialog(null, message, "Application Confirmation", JOptionPane.INFORMATION_MESSAGE);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Please enter your name.", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No slots available for this job.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        });
     }
+
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
@@ -220,6 +293,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
     private JTextArea descTextArea;
     private Table table;
     private JScrollPane scrollPane;
+    private JButton addButton;
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -250,5 +324,13 @@ public class eventLog extends javax.swing.JPanel implements MouseListener {
     public void mouseExited(MouseEvent e) {
         return;
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+    }
+
+    
 
 }
