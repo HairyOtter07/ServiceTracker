@@ -137,6 +137,10 @@ public class Main extends javax.swing.JFrame {
         home.formHaddRow(x, y);
     }
 
+    public static void changeCard(String ev, String date, String hours){
+        home.changeCard(ev, date, hours);
+    }
+
     /**
      * @param args the command line arguments
      */

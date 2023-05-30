@@ -81,6 +81,11 @@ public class eventLog extends javax.swing.JPanel implements MouseListener, Actio
         initComponents();
         initJobTable(id);
 
+        this.name = evName;
+        this.date = evDate;
+        this.location = evLocation;
+        this.hours = Integer.toString(evHours);
+
         String[] descriptions = {
             "Description: Join us for a rewarding volunteer activity as we come together to clean up Ocean Beach, one of the most beautiful coastal areas in our community. This initiative aims to preserve the natural beauty of the beach and protect marine life by removing litter and debris. ",
             "Description: Join us for a rewarding volunteer day at Mohr Elementary School and make a positive impact on the lives of young students. This volunteer activity aims to support the school community by providing assistance with various tasks and creating an enriching environment for students.",
@@ -240,8 +245,11 @@ public class eventLog extends javax.swing.JPanel implements MouseListener, Actio
                 int selectedRow = table.getSelectedRow();
         
                 if (selectedRow != -1) {
-                    String jobName = table.getValueAt(selectedRow, 0).toString();
+                    String jobName = table.getValueAt(selectedRow, 0).toString() + " at " +location;
                     String slots = table.getValueAt(selectedRow, 3).toString();
+                    String jobDate = date;
+                    String jobHours = hours;
+
         
                     int availableSlots = Integer.parseInt(slots);
                     if (availableSlots > 0) {
@@ -255,6 +263,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener, Actio
         
                                 // Update the table with the new slot count
                                 table.setValueAt(availableSlots, selectedRow, 3);
+                                Main.changeCard(jobName, jobDate, jobHours);
         
                                 // You can display a panel with a message using JOptionPane.showMessageDialog
                                 String message = "Application sent to Organization";
@@ -296,6 +305,10 @@ public class eventLog extends javax.swing.JPanel implements MouseListener, Actio
     private Table table;
     private JScrollPane scrollPane;
     private JButton addButton;
+    private String name;
+    private String date;
+    private String location;
+    private String hours;
 
     @Override
     public void mouseClicked(MouseEvent e) {

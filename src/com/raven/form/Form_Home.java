@@ -193,6 +193,11 @@ public class Form_Home extends javax.swing.JPanel {
         table.addRow(x, y);
     }
 
+    public void changeCard(String evname, String evdate, String evhours){
+        card1.setData(new Model_Card(new ImageIcon(getClass().getResource("/com/raven/icon/stock.png")),
+        evname, evdate, evhours + " hours"));
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.component.Card card1;
     private com.raven.component.Card card2;
