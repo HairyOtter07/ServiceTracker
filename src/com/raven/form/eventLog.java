@@ -58,25 +58,7 @@ public class eventLog extends javax.swing.JPanel implements MouseListener, Actio
         { { "Math Teacher", "2 PM", "2 hours", "2" }, { "English Tutor", "2 PM", "2 hours", "1" }, { "Coding Instructor", "2 PM", "2 hours", "3" }, { "Snacks and Drinks", "4 PM", "1 hour", "4" } }
     };
 
-    // private String[][][] jobData = {
-    //     { { "Cleaning", "2 hours", "2" }, { "Bag Holding", "3 hours", "1" }, { "Glove Distributer", "4 hours", "3" }, { "Event Setup", "2 hours", "4" } },
-    //     { { "Food Bar", "2 hours", "2" }, { "Refreshments", "3 hours", "1" }, { "Event Set Up", "4 hours", "3" }, { "Event Clean Up", "1 hour", "4" } },
-    //     { { "Math Teacher", "2 hours", "2" }, { "English Tutor", "2 hours", "1" }, { "Coding Instructor", "2 hours", "3" }, { "Snacks and Drinks", "1 hour", "4" } }
-    // };
-    // private JTextArea descTextArea;
-    /**
-     * Make a array or arraylist full of descriptions for events
-     * Make arraylist full of job[] Strings for events
-     * take the id for each event and plug it in to descriptions[id] and jobs[id]
-     * when you click on an event it returns the id of that event, that id can be
-     * used to to take the specific description you wrote out in the array jobs
-     * 
-     * 
-     * 
-     * 
-     * /**
-     * Creates new form Form_1
-     */
+
     public eventLog(String evName, String evLocation, int evHours, String evDate, int id) {
         initComponents();
         initJobTable(id);
@@ -179,52 +161,11 @@ public class eventLog extends javax.swing.JPanel implements MouseListener, Actio
     private void initJobTable(int id) {
         // Create the table data
         String[][] jobs = jobData[id];
-        // String[][][] jobData = {
-        //     {   { "Cleaning", "10 AM", "2 hours", "2"  },
-        //         { "Bag Holding", "12 PM", "3 hours", "1" },
-        //         { "Glove Distributer", "2 PM", "4 hours", "3" },
-        //         { "Event Setup", "4 PM", "2 hours", "4" }
-        //     },
-        //     {
-        //         { "Food Bar", "2 PM", "2 hours", "2"  },
-        //         { "Refreshments", "12 PM", "3 hours", "1" },
-        //         { "Event Set Up", "10 AM", "4 hours", "3" },
-        //         { "Event Clean Up", "4 PM", "1 hour", "4" }
-        //     },
-        //     {
-        //         { "Math Teacher", "2 PM", "2 hours", "2"  },
-        //         { "English Tutor", "2 PM", "2 hours", "1" },
-        //         { "Coding Instructor", "2 PM", "2 hours", "3" },
-        //         { "Snacks and Drinks", "4 PM", "1 hour", "4" }
-        //     }
-
-            
-        // };
+       
 
         // Create the table column names
         String[] columnNames = { "Job Name", "Time", "Duration", "Slots" };
-        //String[] columnNames = { "Job Name", "Duration", "Slots", "Apply" };
-        // Create the JTable with the data and column names
-        // table = new JTable(jobData, columnNames);
-
-        // Create the data for the Apply button column
-        //Object[][] tableData = new Object[jobs.length][columnNames.length];
-    // for (int i = 0; i < jobs.length; i++) {
-    //     tableData[i][0] = jobs[i][0];
-    //     tableData[i][1] = jobs[i][1];
-    //     tableData[i][2] = jobs[i][2];
-    //     //tableData[i][3] = jobs[i][3];
-    //     // Add the Apply button to the last column if slots are available
-    //     if (Integer.parseInt(jobs[i][2]) > 0) {
-    //         JButton applyButton = new JButton("Apply");
-    //         applyButton.setActionCommand(Integer.toString(i)); // Store the job index as the command
-    //         applyButton.addActionListener(this); // Add the ActionListener
-    //         tableData[i][3] = applyButton;
-    //     } else {
-    //         // No slots available, leave the cell empty
-    //         tableData[i][3] = null;
-    //     }
-    // }
+        
 
         table = new Table();
         table.setModel(new DefaultTableModel(jobs, columnNames) {
